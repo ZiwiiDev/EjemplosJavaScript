@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Encabezado -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda · Asados Peruanos</title>
+  </head>
+  <body>
+    <br />
+    <h1>· Asados Peruanos ·</h1>
+    <br />
+
+    <style type="text/css">
+      * ul, ol {
+        list-style: none;
+      }
+
+      h1 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      div {
+        text-align: center;
+      }
+
+      .nav > li {
+        float: left;
+      }
+
+      .nav li a {
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 12px;
+        display: block;
+      }
+
+      .nav li a:hover {
+        background-color: #434343;
+      }
+
+      .nav li ul {
+        text-align: center;
+        display: none;
+        position: absolute;
+        min-width: 140px;
+      }
+
+      .nav li:hover > ul {
+        display: block;
+      }
+
+      .nav li ul li {
+        position: relative;
+      }
+
+      .nav li ul li ul {
+        right: -140px;
+        top: 0px;
+      }
+
+      .product-container {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+      }
+
+      .product-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+      }
+    </style>
+
+    <!-- Desplegable de productos -->
+    <div id="header">
+      <ul class="nav">
+        <li>
+          <a href="">Asados Peruanos</a>
+          <ul>
+            <li><a href="">Ceviche</a></li>
+            <li><a href="">Anticuchos</a></li>
+            <li><a href="">Lomo Saltado</a></li>
+            <li><a href="">Arroz Chaufa</a></li>
+          </ul>
+        </li>
+      </ul>
+      <br /><br />
+
+      <!-- Imágenes de productos -->
+      <div class="product-container">
+        <img src="images/ceviche.jpg" width="250" height="250" alt="Ceviche" />
+        <div class="product-text">Ceviche</div>
+      </div>
+
+      <div class="product-container">
+        <img
+          src="images/anticuchos.jpg"
+          width="250"
+          height="250"
+          alt="Anticuchos"
+        />
+        <div class="product-text">Anticuchos</div>
+      </div>
+
+      <div class="product-container">
+        <img
+          src="images/lomosaltado.jpg"
+          width="250"
+          height="250"
+          alt="Lomo Saltado"
+        />
+        <div class="product-text">Lomo Saltado</div>
+      </div>
+
+      <div class="product-container">
+        <img
+          src="images/arrozchaufa.jpg"
+          width="250"
+          height="250"
+          alt="Arroz Chaufa"
+        />
+        <div class="product-text">Arroz Chaufa</div>
+      </div>
+    </div>
+    <br /><br />
+
+    <!-- Recuadro de búsqueda de Google -->
+    <label for="q">Haz una búsqueda:</label>
+    <form action="http://google.com/search?q=">
+      <!-- Si pulsamos en enter te busca en google lo que has escrito -->
+      <input type="text" id="q" name="q" /><br /><br />
+    </form>
+
+    <!-- Alerta para caníbales -->
+    <script>
+      alert("Prohibido el paso a caníbales.");
+    </script>
+  </body>
+</html>

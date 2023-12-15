@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Frames e iFrames</title>
+    <style>
+	#subframe1 {
+		border: 4px solid red;
+	     }
+	#subframe2 {
+		border: 4px solid red;
+	     }
+        
+    </style>
+</head>
+<body>
+<h1>Frames e iFrames</h1>
+
+<iframe width="45%" height="400px" src="http://movistar.es" name="iframe_a"></iframe>
+<iframe width="45%" height="400px" src="http://as.com" name="iframe_b"></iframe>
+<p><a href="https://es.wikipedia.org/wiki/Taj%C3%ADn" target="iframe_a">Tajin al primer frame</a></p>
+<p><a href="https://terra.es/" target="iframe_b">Stephen King al segundo frame</a></p>
+<br />
+<h2> Los enlaces pueden ser locales también</h2>
+
+<iframe width="45%" height="400px" src="SubFrame1.html" id="subframe1"></iframe>
+<iframe width="45%" height="400px" src="SubFrame2.html" id="subframe2"></iframe>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geolocation</title>
+  </head>
+
+  <body>
+    <h1>El Objeto Geolocation</h1>
+    <br />
+    Lo primero de todo, con chrome os va a dar problemas si no colgáis la página
+    de internet.
+
+    <script>
+      if ("geolocation" in navigator) {
+          // Hay geolocalización.
+          document.write("Tengo Geolocalización.<br />");
+      } else {
+          // No hay geolocalización.
+          document.write("No hay Geolocalización.<br />");
+      }
+      if (navigator.geolocation) {
+          document.write("EXISTE<br>");
+      } else {
+          document.write("Búscate un navegador moderno.");
+      }
+      // Veamos los métodos disponibles.
+      var i;
+      var migeo = navigator.geolocation; // abreviar
+      for (let i in migeo) {
+          document.write("<strong>" + i + "</strong> " + migeo[i] +
+              "<br />");
+      }
+
+    </script>
+    <br />
+    Para obtener las coordenadas debemos crear una función especial ya que no
+    hay métodos para obtener la posición directamente. Para ello vamos a
+    utilizar <strong>getCurrentPosition()</strong> y una función anońima que
+    recibe como parametro un objeto coords que en mi caso se llama posicion. La
+    posición es aproximada.
+    <script>
+      function muestraError(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            alert("El usuario ha denegado el acceso");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            alert("No hay información disponible");
+            break;
+          case error.TIMEOUT:
+            alert("La solucitud ha producido un time-out");
+            break;
+          case error.UNKNOWN_ERROR:
+            alert("Error desconocido");
+            break;
+        }
+      }
+      coords = migeo.getCurrentPosition(function (posicion) {
+          // Es una forma rara, pero correcta.
+          // Aunque deberíamos llamar a otra función desde
+          // este con las coordenadas para que trabaje con ella.
+          var lugar =
+            posicion.coords.latitude + "/" + posicion.coords.longitude;
+          //window.open("http://maps.googleapis.com/maps/api/staticmap?center=" + lugar +
+          //"&zoom=14&size=400x300&sensor=false", "Mapa", "height=300,width=400");
+          window.open(
+            "https://www.openstreetmap.org/#map=18/" + lugar,
+            "Mapa",
+            "height=300,width=400"
+          );
+
+          if (posicion.coords.altitude && posicion.coords.altitude != 0) {
+            document.write("Altura" + posicion.coords.altitude + "<br />");
+          }
+          //   else alert("No hay información sobre la altura");
+        }, // Se cierra la función anónima.
+        muestraError
+      );
+    </script>
+    
+    <br />
+    Con <strong>watchPosition()</strong> podemos obtener la posición gps. Es
+    bastante útil para móviles. Se trabaja como en el ejemplo anterior, pero
+    esta vez no voy a usar ninguna clase anónima. <br />
+    Además se usa la función muestraError para localizar el tipo de error
+    producido. <br />
+    Se debe comentar el código anterior de current para que funcione el watch.
+    <br />
+    <script>
+      function dondeEstoy(posicion) {
+        document.write("Latitud" + posicion.coords.latitude + "<br />");
+        document.write("Longitud" + posicion.coords.longitude + "<br />");
+      }
+
+      // migeo.watchPosition(dondeEstoy, muestraError);
+    </script>
+  </body>
+</html>

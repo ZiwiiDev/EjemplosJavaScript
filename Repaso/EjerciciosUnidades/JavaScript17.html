@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>El objeto Window Parte 2+screen</title>
+</head>
+<body>
+<h1>Propiedades del objeto Window</h1>
+
+<strong>Propiedad</strong><br />
+
+closed	Devuelve un valor Boolean indicando cuando una ventana ha sido cerrada o no. <br />
+defaultStatus	Ajusta o devuelve el valor por defecto de la barra de estado de una ventana.<br />
+document	Devuelve el objeto document para la ventana.<br />
+frames	Devuelve un array de todos los marcos (incluidos iframes) de la ventana actual.<br />
+history	Devuelve el objeto history de la ventana.<br />
+length	Devuelve el número de frames (incluyendo iframes) que hay en dentro de una ventana.<br />
+location	Devuelve la Localización del objeto ventana (URL del fichero).<br />
+name	Ajusta o devuelve el nombre de una ventana.<br />
+navigator	Devuelve el objeto navigator de una ventana.<br />
+opener	Devuelve la referencia a la ventana que abrió la ventana actual.<br />
+parent	Devuelve la ventana padre de la ventana actual.<br />
+self	Devuelve la ventana actual.<br />
+status	Ajusta el texto de la barra de estado de una ventana.<br />
+
+<strong>Métodos del objeto Window</strong><br />
+alert()	Muestra una ventana emergente de alerta y un botón de aceptar.<br />
+blur()	Elimina el foco de la ventana actual.<br />
+clearInterval()	Resetea el cronómetro ajustado con setInterval().<br />
+setInterval()	Llama a una función o evalúa una expresión en un intervalo especificado (en milisegundos).<br />
+close()	Cierra la ventana actual.<br />
+confirm()	Muestra una ventana emergente con un mensaje, un botón de aceptar y un botón de cancelar.<br />
+focus()	Coloca el foco en la ventana actual.<br />
+open()	Abre una nueva ventana de navegación.<br />
+prompt()	Muestra una ventana de diálogo para introducir datos.<br />
+<script type="text/JavaScript">
+
+ for (var i in window)
+ {
+	 document.write("Método o propiedad " +i+" " + window[i]+"<br />");
+ }
+ var ventanaNueva;
+ var params; //Son los parametros de la ventana
+ params  = 'width='+screen.width/2;
+ params += ',height='+screen.height/2;
+ params += ', top=100, left=100';
+ params += ', fullscreen=yes';
+ ventanaNueva= window.open("http://as.com","",params);
+    
+ params  = 'width='+screen.width/2;
+ params += ',height='+screen.height/2;
+ params += ', top=400, left=300';
+ params += ', fullscreen=yes';    
+     ventanaNueva2= window.open("http://www.google.es","",params);
+ ventanaNueva.focus();  // Si, aquí hemos un anuncio
+</script>
+<br /> <h1>Antes hemos visto el uso de un nuevo objeto. <strong>screen</strong></h1><br />
+<script type="text/JavaScript">
+
+ for (var i in screen)
+ {
+	 document.write("Método " +i+" " + screen[i]+"<br />");
+ }    
+</script>
+</body>
+</html>

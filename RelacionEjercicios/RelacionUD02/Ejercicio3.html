@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+      
+      /*
+        3. Leer desde el teclado, con prompt, hasta que se escriba el número -1. Si es distinto de -1
+        muestre lo escrito en pantalla
+        */
+
+      /* VARIABLES */
+      //let entrada = parseInt(prompt("Dígame un número"));     // Sólo acepta números
+      let entrada = prompt("Dígame un número (-1 para finalizar):");                 // Para que acepte escribir cadenas también
+      let num = -1;                                             // Si se escribe -1 termina el bucle e imprime por pantalla todo lo escrito anteriormente
+
+      /* PROGRAMA */
+      while (entrada != num) {    // Mientras no se escriba -1
+        /* Para que sólo acepte escribir números
+            if (isNaN(entrada) || !isFinite(entrada)) {
+                document.write("¡No has introducido ningún número!<br>");
+            } else {
+                document.writeln('Número: ' + entrada + "<br>");
+            }//end else
+        */
+
+        document.writeln("<p><strong>Texto (número o cadena): </strong>" + entrada + "</p>");     // Muestra el número o la cadena escrita
+
+        entrada = prompt("Dígame un número");       // Vuelve a pedir escribir un número
+      }//end while
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

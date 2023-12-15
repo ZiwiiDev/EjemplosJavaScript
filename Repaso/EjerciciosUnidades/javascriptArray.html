@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="UTF-8">
+	<title>Arrays </title>
+</head>
+<body>
+<script>
+
+    var array_vacio=[];
+    var array_contenido= [2,3,4,5,6];
+    var array_mezcla=[7.3,"a", false,true, ];
+    var array_doble= [[1,{x:1, y:2}], [2, {x:3,y:4}]]; // Contiene objetos otro momento
+   // var array_medio=["a", , "c"]; 
+    var array_medio=[]; 
+    array_medio[0]="a";
+    array_medio[5]="a";
+    array_medio["aasdf3"]="c";
+    array_medio["aaade"]=true;
+
+    
+    // El array tiene elementos en la
+    // posición 0 y 2 ,
+    // pero no en la 1. La longitud es 3
+    //El valor que falta es undefined.
+     document.write("la longitud del array_medio es " +array_medio.length+" <br />");
+    var array_sindefinir=[,,]; // Este array tiene la propiedad length
+       // en 2, pero los
+       // tres valores son undefined
+    
+    document.write("la longitud del array sin definir con tres undefined" +array_sindefinir.length+" <br />");
+
+
+    var array_objeto_vacio= new Array(); // Crear un objeto array vacio []
+    var array_objeto_undefined= new Array(10); //Se crea un objeto de 10 elementos
+    var array_objeto_normal= new Array(6,true, 1, 22, -34, "prueba",10 );
+    
+    // Escribiendo en el array
+    var matriz=["hola"]; // Comienza con un solo objeto
+    var valor= matriz[0]; // Se lee del array
+    matriz[1]=123456; // En la posición 1 se escribe 123456
+
+    var i=matriz.length; // Si hay un elemento que sea asociativo la fastidíais
+    matriz[i]="Mundo";
+    document.write("la longitud de la matriz es " +matriz.length+" <br />");
+    // Arrays dispersos o asociativos.
+    // Hasta ahora hemos accedido por posiciones, pero también
+    //se puede acceder por propiedades
+    var matriz_dos=[];
+    matriz_dos[-132.3]=true; // Creado un una nueva propiedad
+                             // llamada "-132.3"
+    matriz_dos["999"] = 0; // Hemos creado la posición 1000 con valor 0. O sea que la posición 999 empezando por la posición 0 se le va a asignar el valor 0 y no es una posición asociativa ya que ese 999 se convierte directamente en número sin problemas. 
+    matriz_dos[2]=12;
+    matriz_dos[1.000] = 10; // Es equivalente a a matriz[1];
+    matriz_dos["dfssafd"] = 10;
+    matriz_dos[null]="asdfasdf"; // undefined tambien va. 
+    //Se convierten los valores automáticamente al array si la conversión a enteros es exacta. 
+    var milong=0;
+    matriz_dos[5]=undefined;
+
+    console.log("Paranoia de Jose Alberto"+matriz_dos[null]);
+    console.log("Longitud por length"+matriz_dos.length);
+    
+    // PARA SACAR CLAVES USO forin
+    for (let i in matriz_dos) {
+        milong++;
+        console.log(i+" "+matriz_dos[i]);
+    }
+    document.write("La longitud real de matriz_dos con forin es :"+milong+"<br>");
+
+    // PARA SACAR VALORES USO forof
+    // NO RECOMENDADO
+    for (let i of matriz_dos) {
+        milong++;
+        console.log(i+" "+matriz_dos[i]);
+    }
+    document.write("La longitud real de matriz_dos con foreof es :"+milong+"<br>");
+
+    matriz_tres=[false, true];
+    //document.write(matriz_tres[2]+"<br />"); // No está definido
+    document.write("la posiión de la matriz es "+matriz_tres[-1]+"<br />"); // No existe ninguna propiedad "-1";
+
+    [].length; //  0
+    console.log("Longitud de ['a',2] "+['a',2].length); // 2
+    a=[0,1,2,3,4];
+    console.log(a); // Visualizar el contenido del array en la consola. 
+    a.length=3; // Ahora la longitud array vale hasta 2
+
+    console.log(a); // Visualizar el contenido del array en la consola.     
+
+    a.length=0; // Ahora la longitud array vale 0
+    console.log(a); // Visualizar el contenido del array en la consola. 
+    a.length=5; // Acabamos de crear un nuevo array
+    console.log(a); // Visualizar el contenido del array en la consola. 
+
+    // Añadir y eliminar elementos a un array
+    var a = []; // Array vacio con cero elementos
+    a[0]="cero"; // Añadido un elemento
+    a[1]="uno"; // Añadido un elemento
+    console.log(a); // Visualizar el contenido del array en la consola. 
+    a[1]=undefined;
+    console.log(a); // Visualizar el contenido del array en la consola. 
+    
+    // Tambien se puede usaro push y pop
+    var a =[];
+    a.push("cero");
+    console.log("Después del push "+a); // Visualizar el contenido del array en la consola.     
+    a.push("uno","dos");
+    console.log("Después del push "+a); // Visualizar el contenido del array en la consola.     
+    var b= a.pop(); // b vale "dos";
+    
+    console.log("Contenido del tope de la cola "+b);
+    console.log("Después del pop");
+    console.log(a); // Visualizar el contenido del array en la consola.
+    delete a[1]; // Con delete    (NO USAR)
+    console.log("Después del delete");
+    console.log(a); // Visualizar el contenido del array en la consola. 
+    console.log(a.length);
+    debugger;
+    document.write(1 in a); // Equivalente a a[1]
+    console.log(1 in a); // Equivalente a a[1]
+            // Falso, no hay elemento array (es un operador
+            // que aun no habíamos visto)
+    document.write("<br />"+a.length); // Vale 3 ya que delete no afecta a
+    // REcorrer elementos
+    // debugger; // Para el código aquí para poder depurar.
+    a[2]="dos";
+    for (i=0; i< a.length; i++) {
+        // Abajo aparece un uso del continue. ES volver
+        // al principio del for .
+        // No me gusta. No es una buena costumbre, pero tenéis que verlo.
+        if (!a[i]) continue; // Se salta los null, undefined y no existentes
+    
+        if (a[i] === undefined) continue; // Solo se salta los
+        // indefinidos y no existentes
+        if (a[i])       // Si existe el elemento hacerlo así y no
+                        // con continue.
+             document.write(a[i]);
+             
+    }
+    // Recorrerlos para arrays con elementos asociativos y huecos que no permiten realizar un for por posiciones. Se llama array disperso. 
+    for (var i in a) {
+        
+        document.write("Posición de a "+i+" "+a[i]);
+    }
+  //  debugger;
+    // En ecmascript 5 podemos  usar la propiedad forEach
+    // para hacer cosas con cada elemento, por ejemplo funciones
+    var a=[4,,6];
+    let sumatodo=0;
+    a.forEach( function (x) {
+            sumatodo += x;
+    }); // Si estas cosas tan raras se pueden hacer en javascript
+    document.write("<br /> La suma del array es: "+sumatodo+"<br />");
+    debugger;
+
+    // Multidimensionales
+    var superarray= new Array(10);
+    for (let i=0; i<superarray.length; i++)
+        superarray[i]=new Array(10);
+    for (var fila=0; fila<superarray.length; fila++)
+        for (columna=0; columna<superarray[fila].length; columna++)
+            superarray[fila][columna]=fila+columna;
+
+    console.log(superarray[1][1]);
+
+    console.log("Es un array el superarray "+Array.isArray(a)+"<br>"); // Devuelve true si es un array o false
+                       //sino lo es
+    //debugger;
+    var cadena="Soy Cadena";
+    document.write("<br/>"+cadena[1]+"<br />"); // Es el valor "o"
+    
+    
+    console.log("Es un array la cadena"+Array.isArray(cadena)+"<br>"); //
+    document.write("La cadena vale "+ cadena+"<br>");
+    cadena[3]='s';
+    document.write("La cadena vale "+ cadena);
+    //debugger;
+    // Ejemplos de shift y unshift
+    var cola=[];
+    var meter=prompt("Dime una cadena");
+    cola.unshift(meter);
+    var metermas=prompt("Dime una cadena");
+    cola.unshift(metermas);
+    //debugger;
+    var sacado=cola.pop();
+    //debugger;
+    // Recordad que en versiones antiguas de navegadores como IE 8
+    // no te dejan cambiar los valores.
+       
+    // Para convertir una cadena a un array se utiliza split()
+    // Juntar dos arrays usar join()
+    // Invertir un array usar reverse()
+    // ordenar un array sort()
+    // concatenar dos arrays  concat()
+    // Obetener un subarray (trozo del array) slice
+    // Para hacer de todo lo anterior se puede usar splice
+    // para simular una pila usar push y pop
+    // para simular una pila, pero en vez de añadir en el final se añade en el principip usar shift() y unshift()
+    // Para obtener los elementos en cadena usar toString() o toLocaleString()
+    // map() para algo similar forEach() pero debe devolver un valor
+    //filter(), every(), some(), reduce(),reduceRight() son similares a map pero con otras características.
+    // indexOf() lastIndexOf() como en las cadenas;
+    let miarray=new Array("Hola","Adios","Hasta Luego");
+    // Se accede al contenido del array.
+    for (let i of miarray)
+        {
+            document.write(i+"<br>"); // No hace falta miarray[i]
+        }
+
+    // Ordenar
+
+    let points = ["Z","A","B"];
+    points.sort(function(a, b){return a>b});
+</script>
+
+</body>
+</html>

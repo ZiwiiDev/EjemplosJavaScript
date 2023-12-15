@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Funciones en Funciones. </title>
+    <script>
+     // Esta función no es un ejemplo
+	 // de buen código. Calcula la suma
+	 // del tamaño de las dos cadenas.
+    
+
+     function tamanoCadenas(cadena1, cadena2) {
+		function cuenta (cadena) {
+            // esta función solo es accesible dentro de la función padre.
+			return (cadena.length);
+		}
+		return (cuenta(cadena1) + cuenta(cadena2));
+	 }
+    </script>
+</head>
+<body>
+
+<script>
+
+//console.log(cuenta("pepe"));
+
+var tam=tamanoCadenas(" hola ".trim()," holas ".trim()); // trim quita los espacios antes y después.
+document.write("El tamaño de las dos cadenas es " + tam);
+</script>
+
+</body>
+</html>

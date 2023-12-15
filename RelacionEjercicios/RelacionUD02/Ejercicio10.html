@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 10 · Oliver</title>
+  </head>
+
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!-- LA PARTE DE HTML PARA LA 1ª FORMA - CON EVENTOS (EVENTO EN EL BOTÓN) 
+    <input type="text" id="numPrimero" placeholder="Primer número" />
+    <select id="option">
+        <option value="+">&nbsp;+&nbsp;</option>
+        <option value="-">&nbsp;-&nbsp;</option>
+        <option value="*">&nbsp;*&nbsp;</option>
+        <option value="/">&nbsp;/&nbsp;</option>
+        <input type="text" id="numSegundo" placeholder="Segundo número" />
+    </select>
+    
+    <button id="calcular">Calcular</button></p>
+    <output id="resultado"></output>              Para sacar el resultado de la operación -->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+      
+      /* IMPORTANTE: Arturo viniste a mi mesa y me dejaste utilizar eventos pero sólo para este ejercicio.
+           Voy a dejar la opción en la que lo he hecho con eventos comentada, y haré otra opción alternativa sin eventos para tener ver las 2 versiones. */
+
+      // -------------------------------------------------------------------------------------------------------------------------------------------------------
+      /*
+        10. Cree una calculadora que pregunte por dos números y la operación a realizar, (“+” “-” “*”
+        “/”). Tenga en cuenta los posibles NaN y demás cosas “raras”.
+        */
+
+      /* LA PARTE DE JAVASCRIPT PARA LA 1ª FORMA - CON EVENTOS (EVENTO EN EL BOTÓN)
+        document.querySelector("#calcular").addEventListener("click", () => {           // Referenciando al id del 'output' del HTML
+
+        // Creo constantes y utilizaré el parseInt para que nuestro script los vea como números
+        const primerNumero = parseInt(document.querySelector("#numPrimero").value);
+        const segundoNumero = parseInt(document.querySelector("#numSegundo").value);
+
+        // Esta variable se encarga de que el símbolo que se utiliza en el formulario de la calculadora sea el que se tenga en cuenta a la hora de realizar la operación
+        const operador = document.querySelector("#option").value;           // Referenciando al id del 'select' del HTML
+        let resultado;
+
+        if (operador == "+") {
+          resultado = primerNumero + segundoNumero;
+        } else if (operador == "-") {
+          resultado = primerNumero - segundoNumero;
+        } else if (operador == "*") {
+          resultado = primerNumero * segundoNumero;
+        } else if (operador == "/") {
+          resultado = primerNumero / segundoNumero;
+        }
+        document.querySelector("#resultado").innerHTML = resultado;
+      });
+      */
+
+      // 2ª FORMA SIN EVENTOS
+      /* VARIABLES */
+      var num1, num2, operacion, resultado;
+
+      /* PROGRAMA */
+      num1 = parseFloat(prompt("Ingresa el primer número:"));     // Solicito al usuario el primer número
+
+      // Verifico si el primer número es válido (no es NaN)
+      if (isNaN(num1)) {
+        alert("¡El primer número insertado no es válido!");     // No es válido el número insertado
+      } else {    // Sí es valido el número
+        operacion = prompt("Ingresa la operación a realizar (+, -, *, /):");      // Solicito al usuario que elija una operación a realizar
+
+        // Verifico si la operación es válida
+        if (operacion === "+" || operacion === "-" || operacion === "*" || operacion === "/") {
+          num2 = parseFloat(prompt("Ingrese el segundo número:"));    // Solicito al usuario el segundo número
+
+          // Verifico si el segundo número es válido (no es NaN)
+          if (isNaN(num2)) {
+            alert("¡El segundo número insertado no es válido!");      // El segundo número insertado no es válido
+          } else {
+            // Realizo la operación y muestro el resultado
+            switch (operacion) {
+              case "+":
+                resultado = num1 + num2;    // Sumo
+                break;
+              case "-":
+                resultado = num1 - num2;    // Resto
+                break;
+              case "*":
+                resultado = num1 * num2;    // Multiplica
+                break;
+              case "/":
+                if (num2 !== 0) {   // Si no es 0
+                  resultado = num1 / num2;  // Divido
+                } else {
+                  alert("¡No se puede dividir por cero! Prueba con otro número.");      // Aviso que si es 0 no se puede dividir entre él
+                }//end if
+
+                break;
+            }//end switch
+
+            // Si el resultado es válido lo muestro
+            if (resultado !== undefined) {
+              alert("El resultado de " + num1 + " " + operacion + " " + num2 + " es: " + resultado);        // Muestro el resultado
+            }//end if
+          }//end else
+        } else {
+          alert("¡La operación insertada no es válida!");     // La operación insertada no es válida
+        }//end else
+      }//end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

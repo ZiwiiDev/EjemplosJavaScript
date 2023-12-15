@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        2. Modifique el script anterior para que en otra variable para que con una variable llamada todo,
+        concatenes el nombre con el primer y segundo apellido.
+        */
+
+      /* VARIABLES */
+      var entrada, apellidos, todo;
+
+      /* PROGRAMA */
+      entrada = prompt("¿Cómo te llamas?");               // Pregunto por el nombre
+      apellidos = prompt("¿Cuáles son tus apellidos?");   // Pregunto por los apellidos
+
+      todo = entrada.concat(" ", apellidos);       // Concateno el nombre con los 2 apellidos
+      document.writeln("<p><strong> Nombre completo: </strong>" + todo + "</p>");      // Muestro el nombre completo, concatenado anteriormente
+
+      entrada = prompt("¿Cuál es tu edad?");              // Pregunto por la edad
+      document.writeln("<p><strong> Edad: </strong>" + entrada + "</p>");        // Muestro la edad
+      entrada = prompt("¿Cuál es su lugar de nacimiento?");           // Pregunto por el lugar de nacimiento
+      document.writeln("<p><strong> Lugar de nacimiento: </strong>" + entrada + "</p>");      // Muestro el lugar de nacimiento
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

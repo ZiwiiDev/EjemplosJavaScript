@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title> Objetos </title>
+</head>
+<body>
+Javascript dispone de una serie de objetos con una gran cantidad de propiedades.
+Los objetos se suelen crear <strong> new </strong>, a excepción
+  de los objetos literales.
+<br />
+<script>
+var miprimerObjeto= new Object(); // El primero Objeto. Está vacío.
+let cadena = new String("Valor inicial."); // un objeto tipo cadena.
+let noString ="Valor inicial.";  // Son == pero no ===
+document.write (cadena+"<br />");
+var miarray= new Array(); // Los arrays son objetos tambien. Está vacío.
+var fecha = new Date(); // Un objeto date.
+document.write (fecha+"<br />"); // Ya veremos otras formas de ver los valores.
+//debugger; // Aquí se para el programa si quitáis el comentario.
+var minumero=new Number(23);
+var mibooleano=new Boolean(false);
+
+</script>
+¿Cómo se declara un objeto literal?
+<script>
+var vacio={}; // Es equivalente al miprimerObjeto y la base de un array
+var punto = { x:0, y:0 }; // Este objeto es tiene dos propiedades
+var disco = {
+	"Título": "Dark Side of The Moon", // Si se puede declarar así
+	"Autor": "Pink Floid",
+	"Estilo" : "Rock Psicodelico"
+	};
+punto.x=10; // Punto x su propiedad vale 10
+punto.y=-10; // Punto y su propiedad vale -10
+document.write(punto+"<br />("+punto.x+","+punto.y+") <br />");
+document.write(disco+"<br />"); // No es muy util.
+// Para poder ver todas las propiedades de un objeto vamos a utilizar un nuevo tipo de for.
+for(let propiedad in disco)
+	{
+	console.log(propiedad);
+	document.write(propiedad);
+}
+// Para mostrar el valor
+for(let propiedad in disco)
+    {
+		document.write(propiedad+" = " + disco[propiedad] +" ");
+        // No podéis usar disco.propiedad. Hay que usar array asociativo.
+		console.log(propiedad+" = " + disco[propiedad] + " ");
+	}
+// Ahora vamos a ver otras cosas básicas de objetos
+debugger;
+var circulo = {
+	radio:0
+};
+circulo.radio=2;
+circulo.diametro=function () { return (this.radio*2); };
+    // Se usa this para referirse al radio de este objeto literal
+circulo.longitud= function () { return (2 *  Math.PI * this.radio); };
+document.write("<br /> El radio es "+ circulo.radio);
+document.write(" y su diametro es " + circulo.diametro());
+document.write(" y su longitud es " + circulo.longitud() + "<br />");
+
+</script>
+<br /> Esos objetos son muy limitados y ya veremos como hacerlos más
+    útiles en temas posteriores. A partir de ahora veremos los objetos
+    del sistema que es el objetivo del tema actual. <br />
+</body>
+</html>

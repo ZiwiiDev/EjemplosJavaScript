@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 14 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+         14. Convierta a binario (usando el algoritmo de las divisiones) el número entrado desde teclado.
+        */
+
+      /* VARIABLES */
+      var numDecimal, resto;
+      var numBinario = "";  // Si no lo inicializo a cadena vacía me sale NaN, esto se debe a que el número binario será cadena
+
+      /* PROGRAMA */
+      // OPCIÓN UTILIZANDO EL ALGORITMO DE DIVISIONES PEDIDO
+      numDecimal = parseInt(prompt("Introduce un número decimal para convertirlo a binario:")); // Pido insertar el número decimal
+
+      document.write("<p><strong>Decimal: </strong>" + numDecimal + "</p>");
+
+      if (!isNaN(numDecimal)) {
+        // Si no es 0
+        if (numDecimal !== 0) {
+          // Mientras sea mayor que 0 para no aceptar números negativos
+          while (numDecimal > 0) {
+            resto = numDecimal % 2; // Calculo el resto de la división del número decimal entre 2
+            numBinario = resto + numBinario; // Agrego el resto al principio de la cadena para crear el número binario
+            numDecimal = Math.floor(numDecimal / 2); // Divido el decimal y tomo la parte entera
+          } //end while
+
+          document.write("<p><strong>Binario: </strong>" + numBinario + "</p>");
+        } else {
+          document.write("La representación binaria de 0 es 0."); // Caso especial: si el número es 0, la representación binaria también es 0
+        }//end else
+      } else {
+        document.write("¡Ingrese un número válido!");
+      } //end else
+
+      // -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+      // OPCIÓN ADICIONAL con toString(2)
+      /* Utilizando el toString() podemos hacer que la variable numérica se divida entre 2 dando así el resto y convirtiéndolo en binario */
+      //document.write("<p><strong>Binario: </strong>" + numIntroducido.toString(2) + "</p>");
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 7 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        7. Averigüe el sexo de una persona por su nombre. Si termina en o es hombre, si termina en a es
+        mujer. Devuelva un saludo en base al sexo detectado.
+        */
+
+      /* VARIABLES */
+      var nombre, ultimaPosicion, ultimoCaracter;
+
+      /* PROGRAMA */
+      nombre = prompt("Introduce tu nombre:");              // Pregunto el nombre
+      ultimaPosicion = nombre.length - 1;                   // Saco la última posición
+      ultimoCaracter = nombre.charAt(ultimaPosicion);       // Saco el caracter de la última posición
+
+      if (ultimoCaracter === "o") {     // Si el último caracter es una "o" es hombre
+        document.write("<p>¡Buenos días," + nombre + "! ¿Cómo va todo hombre?</p>");                      // Saludo al hombre
+      } else {
+        if (ultimoCaracter === "a") {           //Si termina en "a" es una chica
+          document.write("<p>¡Buenos días, " + nombre + "! ¿Cómo va todo mujer?</p>");                    // Saludo a la mujer
+        } else {  // Si no termina en ninguna de estas 2 lanza un saludo genérico
+          document.write("<p>¡Buenos días, " + nombre + "! ¿Cómo va todo personita?</p>");                // Saludo a la personita
+        }//end else
+      }//end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

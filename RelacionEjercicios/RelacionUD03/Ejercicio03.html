@@ -1,0 +1,83 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------------------------->
+  <body>
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        3. Ejercicios con caracteres. Recordad que se empieza en la posición 0. No se puede utilizar arrays. Usar charAt(). Sin funciones de sustitución o expresiones regulares.
+            a) Repetir caracteres por posición inversa.
+                Vuestro programa debe leer una cadena de teclado (puede contener número y otros caracteres).
+                Después de leerlo, debéis generar una salida.
+                Ejemplos de uso:
+                    "Hola" se convierte en "HHHHooolla"
+                    "1da" se convierte en "111dda"
+
+            b) Borrar repetidas.
+                • Leer una cadena de teclado (puede contener número y otros caracteres) y que
+                elimine los caracteres repetidos que vayan seguidos.
+                • Las mayúsculas y las minúsculas no son iguales.
+                • Por ejemplo:
+                    • "Aa1aaaaa" se convertiría en "Aa1a".
+                    • “Adderson” se convertiría en “Aderson”.
+        */
+
+      /* VARIABLES */
+      let entrada;
+      let posicion = 0;
+      let cadenaSinRepeticiones = "";
+
+      /* PROGRAMA */
+      document.write("<h2>· Ejercicio 03 ·</h2>");
+      entrada = prompt("Introduce una palabra: "); // Pido una cadena por teclado, puede contener tanto un número como otros caracteres
+      document.write("<strong>Cadena introducida: </strong>" + entrada);  // Muestro la cadena introducida por el usuario
+
+      /* Apartado A */
+      document.write("<strong><br><br>a) Repetir caracteres por posición inversa: </strong>");
+      let longitudCadenaA = entrada.length; // Longitud de la cadena insertada para operar en el apartado a
+
+      // Mientras que la longitud de la cadena insertada sea mayor que 0
+      while (longitudCadenaA > 0) {
+        // Bucle que recorre la cadena insertada
+        for (let i = 0; i < longitudCadenaA; i++) {
+          let cadenaInvertida = entrada.charAt(posicion); // Almaceno el caracter que hay en cada posición de la cadena
+          document.write(cadenaInvertida); // Muestro la cadena final generada
+        } //end for
+
+        longitudCadenaA--; // Cada caracter de la cadena desde la última posición a la primera
+        posicion++; // Paso a la siguiente posición de la cadena
+      } //end while
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      /* Apartado B */
+      document.write("<strong><br><br>b) Borrar repetidas: </strong>");
+      let longitudCadenaB = entrada.length; // Longitud de la cadena insertada para operar en el apartado b
+      
+      // Si la longitud de la cadena insertada es mayor que 0
+      if (longitudCadenaB > 0) {
+        cadenaSinRepeticiones = entrada.charAt(0); // Inicializo la cadena resultante con el primer carácter
+
+        // Bucle que recorre la cadena insertada
+        for (let i = 0; i < longitudCadenaB; i++) {
+          let actualCaracter = entrada.charAt(i); // Caracter actual
+          let anteriorCaracter = cadenaSinRepeticiones.charAt(cadenaSinRepeticiones.length - 1); // Caracter anterior
+
+          // Si el caracter actual no es igual al caracter anterior
+          if (actualCaracter !== anteriorCaracter) {
+            cadenaSinRepeticiones += actualCaracter; // Agrego el caracter actual al resultado, si es igual no lo guardo
+          }//end if
+        }//end for
+
+        document.write(cadenaSinRepeticiones); // Muestro la cadena final generada (sin caracteres repetidos)
+      }//end if
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

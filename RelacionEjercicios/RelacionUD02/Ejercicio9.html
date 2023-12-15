@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 9 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        9. Cree un script “Adivine el número”. Un usuario debe introducir un número y otro tratar de
+        adivinarlo, indicando si el número es inferior o superior.
+        */
+
+      /* VARIABLES */
+      var numIntroducido, numEncontrado, numAdversario;
+
+      /* PROGRAMA */
+      numIntroducido = parseInt(prompt("Introduce un número:")); // El rival inserta un número
+      numEncontrado = false; // Por defecto no se ha encontrado el número del rival
+
+      // Condición para validar que sean números
+      if (isNaN(numIntroducido) || !isFinite(numIntroducido)) {
+        document.write("<p><strong>¡No has introducido ningún número!</strong></p>"); // Indico que no se ha introducido un número
+      } else {
+        // Mientras que numEncontrado sea falso
+        while (numEncontrado == false) {
+          numAdversario = parseInt(prompt("Intenta adivinar el número:")); // Se muestra un mensaje para adivinar el número
+
+          if (isNaN(numAdversario) || !isFinite(numAdversario)) {
+            alert("¡No has introducido ningún número!"); // Indico que no se ha introducido un número
+          } else {
+            if (numIntroducido > numAdversario) {
+              // Si el número introducido es mayor al que hay que adivinar
+              alert("¡El número es superior!"); // Es superior
+            } else if (numIntroducido < numAdversario) {
+              // Si el número introducido es menor al que hay que adivinar
+              alert("¡El número es inferior!"); // Es inferior
+            } else {
+              // Si el número introducido es igual al que hay que adivinar
+              alert("¡HAS ADIVINADO EL NÚMERO!"); // Se ha adivinado
+              numEncontrado = true; // Se ha adivinado el número
+              document.write("<p><strong>¡ENHORABUENA, HAS ADIVINADO EL NÚMERO!</strong></p>");
+            } //end else
+          }//end else
+        } //end while
+      } //end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

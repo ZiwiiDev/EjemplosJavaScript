@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        5. Cree un script que le pregunte por un mes del año (no contar bisiestos) e indique el número
+        de días que tiene.
+        */
+
+      /* VARIABLES */
+      var dias, mes; // Determino el número de días en el mes
+
+      /* PROGRAMA */
+      mes = prompt("Escribe un mes del año").toLowerCase(); // Solicito al usuario el mes del año
+
+      // Saco el número de días del mes introducido
+      switch (mes) {
+        case "enero":
+        case "marzo":
+        case "mayo":
+        case "julio":
+        case "agosto":
+        case "octubre":
+        case "diciembre":
+          dias = 31;    // Todos los meses con 31 días
+          break;
+        case "febrero":
+          dias = 28; // No se considera año bisiesto
+          break;
+        case "abril":
+        case "junio":
+        case "septiembre":
+        case "noviembre":
+          dias = 30;    // Todos los meses con 30 días
+          break;
+        default:
+          document.writeln("<p><strong>¡Mes no válido. Ingresa uno válido!</strong></p>");        // Indico que el mes no es válido
+          break;
+      }//end switch
+
+      // Si el número de días introducido está bien
+      if (dias !== undefined) {
+        document.writeln('El mes "' + mes + '" tiene ' + dias + " días.");      // Saco por pantalla el nombre del mes y los días que tiene
+      }//end if
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

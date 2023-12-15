@@ -1,0 +1,60 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>· Ejercicio 03 Examen | Oliver Fabian Stetcu ·</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /*
+        3. Realice un script que calcule la siguiente fórmula:
+        d = raiz cuadrada((a+b)/(b-c))
+        resultado = tan((pi*2*d))
+
+        • Las entradas deben controlarse para asegurar que sólo entren números usando do while.
+        • a, b y c deben ser enteros positivos.
+        • b – c provoca división por 0.
+        • tan es la función Math.tan().
+        • El resultado a mostrar un número flotante con 3 dígitos decimales sin perdida de información en la realidad.
+        */
+      document.write("<h2>· Ejercicio 03 ·</h2>");
+
+      /* VARIABLES */
+      let d;
+      let resultado;
+      let a;
+      let b;
+      let c;
+
+      /* PROGRAMA */
+      // Las entradas deben controlarse para asegurar que sólo entren números usando do while. Además, a, b y c deben ser enteros positivos.
+      do {
+        // Pido al usuario que inserte los números a, b y c
+        a = parseFloat(prompt("Inserta el valor de 'a':"));
+        b = parseFloat(prompt("Inserta el valor de 'b':"));
+        c = parseFloat(prompt("Inserta el valor de 'c':"));
+        
+        document.write("<strong>'a'</strong> vale: " + a + "<br>");
+        document.write("<strong>'b'</strong> vale: " + b + "<br>");
+        document.write("<strong>'c'</strong> vale: " + c + "<br><br>");
+
+        // b – c provoca división por 0
+        if (b - c === 0) {
+          document.write("'b' - 'c' da 0. ¡No se puede dividir por 0!<br>");
+        } else {
+            // Calculo el resultado final de la fórmula
+            d = Math.sqrt((a + b) / (b - c));
+            resultado = Math.tan(2 * Math.PI * d);
+
+            // Muestro el resultado con 3 dígitos decimales sin pérdida de información en la realidad
+            document.write("<strong>Resultado</strong> " + resultado.toFixed(3));
+        }
+      } while (a <= 0 || b <= 0 ||  c <= 0 || isNaN(a) || isNaN(b) || isNaN(c) || !Number.isInteger(a) || !Number.isInteger(b) || !Number.isInteger(c));
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

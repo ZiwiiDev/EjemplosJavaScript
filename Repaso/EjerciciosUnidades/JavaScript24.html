@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Funciones anónimas. Operador flecha/lambda. </title>    
+</head>
+<body>
+
+<script>
+x=true;
+// Lo de abajo se puede hacer, pero mejor no. 
+if (x) 
+{
+     function vacia() {
+		 document.write("Hola 1 <br>");
+		 }
+}
+// otra alternativa
+if (x) 
+{
+    var vaciados = function () {
+		document.write("Hola 2 <br>");
+		 };
+    // Con lambda o flecha
+    var vaciatres = () => { document.write("hola 3<br>")};
+    var vaciacuatro = (argumento) => { document.write("<br>hola"+argumento+"<br>")};
+
+
+}
+if (vacia) // Forma para comprobar si una función existe y no provocar un error al llamarla.
+    vacia();
+
+vaciados(); // Se ejecuta correctamente. 
+vaciados; //Incorrecto. No saca nada.
+
+vaciatres();
+vaciacuatro(4);
+
+
+const pepito= function  (a, b) {
+        return (a*a+b*b*b);
+        }
+    console.log(pepito(1,2));
+
+</script>
+   
+
+</body>
+</html>

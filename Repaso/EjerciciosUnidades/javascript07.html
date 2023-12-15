@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Algunas cosillas de operadores</title>
+  </head>
+  <body>
+    <script>
+      let i; //declaro una variable pero no asigno el tipo.
+      //var resultado=i+i;
+      //console.log(resultado);
+      //i="233";
+      //console.log(i);
+      if (typeof i === "undefined") {
+        // veamos que no tiene tipo
+        document.write("La variable no está definida <br>");
+      } else {
+        document.writeln("La variable i es del tipo " + typeof i + "<br>");
+      }
+      // Ahora a parte del typeof existe otro operador
+      // el tipo cuando usamos objetos. instanceof
+      //var Cadena = new String("Soy un objeto String <br>"); // Definimos como objeto String
+      //document.write("Cadena es " + typeof Cadena+"<br>");
+      let Cadena = new String("hola");
+      if (Cadena instanceof String)
+        // Devuelve true si es
+        document.write("El objeto Cadena es un String<br>");
+      else document.write("El objeto Cadena no es String<br>");
+
+      if (Cadena==="hola") 
+        document.write("Soy igual");
+        else 
+        document.write("no soy del mismo tipo");
+
+    
+      // Existe otro operador delete pero que utilizaremos para
+      // cuando utilicemos objetos.
+    </script>
+  </body>
+</html>

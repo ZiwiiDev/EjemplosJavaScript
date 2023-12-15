@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 11 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        11. Crear un script en el que se pida el nombre de un alumno y la nota del módulo DWEC.
+        Muestre el nombre del alumno y si ha sacado Insuficiente (menor a 5) Aprobado (entre 5 y
+        5,99), Bien (entre 6 y 6,99), Notable(Entre 7 y 8,49), Sobresaliente (8,5 a 10).
+        */
+
+      /* VARIABLES */
+      var nombre, nota;
+
+      /* PROGRAMA */
+      nombre = prompt("Ingresa tu nombre:"); // Pregunto por el nombre
+      nota = parseFloat(prompt("Ingresa tu nota:")); // Pregunto por la nota
+
+      // Condición para validar que sean números
+      if (isNaN(nota) || !isFinite(nota)) {
+        document.write("<p><strong>¡La nota debe ser un número!</strong></p>"); // Indico que no se ha introducido un número
+      } else {
+        document.write("<p><strong>Nombre del alumno: </strong>" + nombre + "</p>"); // Imprimo el nombre del alumno
+        
+        // Introducimos el nombre y la nota del alumno y según la nota sacamos la calificación correspondiente del alumno
+        if (nota < 5) {
+          // Menor a 5
+          document.write("<p><strong>Nota: ¡Insuficiente!</strong>"); // Insuficiente
+        } else {
+          // Mayor que 5
+          if (nota <= 5.99) {
+            document.write("<p><strong>Nota: ¡Aprobado!</strong>"); // Aprobado
+          } else {
+            if (nota <= 6.99) {
+              document.write("<p><strong>Nota: ¡Bien!</strong>"); // Bien
+            } else {
+              if (nota <= 8.49) {
+                document.write("<p><strong>Nota: ¡Notable!</strong>"); // Notable
+              } else {
+                  if (nota <= 10) {
+                    document.write("<p><strong>Nota: ¡Sobresaliente!</strong>"); // Sobresaliente
+                  } else {
+                    alert("¡La nota máxima permitida es 10!");
+                    document.write("<p><strong>Nota: ¡Inválida!</strong>");
+                  }//end else
+              } //end else
+            } //end else
+          } //end else
+        } //end else
+      } //end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

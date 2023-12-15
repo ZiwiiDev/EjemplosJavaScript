@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Number </title>
+</head>
+<body>
+<h1> Objeto Number , o sea, ¡Más Mates!</h1>
+   Muchas veces hay que visualizar un número menor de decimales.
+   Para ello podemos utilizar un metodo del número llamado
+   toFixed(<i>número de decimales</i>); <br />
+   Se hace un redondeo.
+<script>
+	var num1=new Number(Math.random()*100);
+	var num2=Math.random()*100;
+	var num3=Math.random()*100;
+//	num1=num1.toFixed(2); // Sólo dos decimales.
+	document.write("Num1 "+ num1 +" y con dos decimales "+num1.toFixed(2)+"<br />"); //
+	num2=num2.toFixed(1); // Sólo un decimal.
+	document.write("Num2 "+ num2 +"<br />"); //
+	// Para eliminar todos los decimales no hace falta poner 0;
+	// Es una forma de transformar decimales a enteros.
+	//num3=num3.toFixed(0); 
+	document.write("Num3 con decimales "+ num3+" y sin decimales "+num3.toFixed(0) +"<br />"); //
+
+	debugger;
+</script>
+También pueden convertirse a notación exponencial.
+toExponential(<i>Número de digitos a conservar</i>); <br />
+<script>
+	var num4=Math.random()*1000;
+	document.write("Número normal "+ num4 +"<br />");
+	document.write("Número exponencial con decimales normales ");
+    document.write(num4.toExponential() +"<br />");
+	document.write("Número exponencial básico "+
+    
+    num4.toExponential(2));
+    document.write("<br />");
+</script>
+Ahora con el método toPrecision(<i> precisión</i>) vamos a indicar
+cuantos dígitos vamos a utilizar. <br />
+<script>
+	var num5=Math.random()*100;// Número entre 0 y 99,99
+	document.write("Número normal "+ num5 +"<br />");
+	document.write("Número con precisión de 4 digitos "+
+    num5.toPrecision(4) +"<br />");
+	document.write("Número con precisión de 1 digito  "+
+    num5.toPrecision(1) +"<br />");
+</script>
+Como habréis comprobado solo se cuenta digitos distintos de cero a la izquierda.
+<br />
+Y por último el método que tienen todas las clases toString().
+Convierte el número a cadena. <br />
+<script>
+	var num6=10;
+	var variable=num6.toString();
+	document.write("El num6 y variable es: "
+                   + num6 +" " + variable+" <br />");
+</script>
+Tambien podemos declarar los números 100% como objetos.
+Para eso utilizaremos <br />
+<strong>var numero= new Number (12.3);</strong>
+<br />
+<script>	
+
+	var numero= new Number (12.3);
+	var noObjeto= numero.valueOf(); // Para convertir de objeto a tipo.
+	document.write("Tanto el objeto como el no objeto valen lo mismo. <br />");
+	document.write("Objeto Number: "+ numero + " <br />");
+	document.write("Tipo número: " +  noObjeto + "<br />");
+</script>
+</body>
+</html>
+
+

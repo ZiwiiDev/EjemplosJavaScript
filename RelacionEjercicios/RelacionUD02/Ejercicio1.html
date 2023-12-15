@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        1. Realice un script que pregunte por el nombre, apellidos, edad, lugar de nacimiento y que lo
+        muestre en el HTML mostrando los datos en distintos párrafos.
+        */
+
+      /* VARIABLE */
+      var entrada;             
+
+      /* PROGRAMA */
+      entrada = prompt("¿Cómo te llamas?");                               // Pregunto el nombre
+      document.writeln("<p><strong> Nombre: </strong>" + entrada + "</p>");                    // Imprimo por pantalla el nombre
+      entrada = prompt("¿Cuáles son tus apellidos?");                     // Pregunto los apellidos
+      document.writeln("<p><strong> Apellidos: </strong>" + entrada + "</p>");                 // Imprimo por pantalla los apellidos
+      entrada = prompt("¿Cuál es tu edad?");                              // Pregunto la edad
+      document.writeln("<p><strong> Edad: </strong>" + entrada + "</p>");                      // Imprimo por pantalla la edad
+      entrada = prompt("¿Cuál es su lugar de nacimiento?");               // Pregunto el lugar de nacimiento
+      document.writeln("<p><strong> Lugar de nacimiento: </strong>" + entrada + "</p>");       // Imprimo por pantalla el lugar de nacimiento
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

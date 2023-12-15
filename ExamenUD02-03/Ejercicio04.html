@@ -1,0 +1,61 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>· Ejercicio 04 Examen | Oliver Fabian Stetcu ·</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /*
+        4. Vamos a recibir un texto de entrada que tenga al menos 5 caracteres. Después vamos a preguntar por un carácter (si metes más de uno debes controlarlo) 
+        y vamos a contar cuantas coincidencias tiene. Debéis contar tanto mayúsculas como minúsculas.
+
+        Ejemplos:
+            • “Hola me llamo Antonio” , “a” → Tienes 3 “a” contando posibles mayúsculas.
+            • “Hola me llamo John”, “1” → Tienes 0 “1” contando posibles mayúsculas.
+        */
+      document.write("<h2>· Ejercicio 04 ·</h2>");
+
+      /* VARIABLES */
+      let texto;
+      let caracter;
+      let coincidencias;
+
+      /* PROGRAMA */
+      // Pido al usuario que ingrese un texto con al menos 5 caracteres
+      texto = prompt("Ingrese un texto (al menos 5 caracteres):");
+
+      // Verifico que el texto tenga al menos 5 caracteres
+      if (texto.length >= 5) {
+        // Pido al usuario que ingrese un carácter
+        caracter = prompt("Ingrese un carácter:");
+
+        // Verifico que se haya ingresado un sólo carácter
+        if (caracter.length === 1) {
+          // Inicializo contador de coincidencias a 0 porque todavía no ha ocurrido ninguna ocurrencia
+          coincidencias = 0;
+
+          // Recorro cada carácter del texto
+          for (var i = 0; i < texto.length; i++) {
+            // Verifico si el carácter actual es igual al carácter ingresado (ignorando mayúsculas/minúsculas)
+            if (texto.charAt(i).toLowerCase() === caracter.toLowerCase()) {
+              coincidencias++;
+            }
+          }
+
+          // Muestro el resultado
+          document.write("'<strong>" + texto + "</strong>' Tienes " + coincidencias + " '" + caracter + "'" + " contando posibles mayúsculas.");
+        } else {
+            document.write("¡Por favor, ingrese solo un carácter!");    // Mensaje de error al insertar más de un caracter
+        }
+      } else {
+        document.write("¡El texto debe tener al menos 5 caracteres!");  // Mensaje de error al insertar un texto con menos de 5 caracteres
+      }
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

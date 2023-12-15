@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date</title>
+  </head>
+
+  <body>
+    Vamos a ir viendo distintas formas usar el objeto Date. Primero que tal como
+    todos los objetos empieza en Mayúscula.
+    <br />
+    <script>
+      // Obtenemos la forma actual
+      var fecha = new Date();
+      document.write(fecha + "<br />");
+      document.write(fecha.toLocaleDateString() + "<br/>");
+      // Ahora si que sale en formato español
+      document.write(fecha.toLocaleDateString("en-uk") + "<br/>");
+      // Forzar formato español.
+      document.write(fecha.toLocaleDateString("zu") + "<br />");
+      //formato inglés.
+
+      // Ahora veremos opciones de formatear las fechas
+      // Investigar más posteriormente
+      var opciones = {
+        // Para estas cosas he adelantado los objetos literales
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: "true",
+        timeZoneName: "short",
+      };
+      document.write("<br> Formato de fecha modificado.<br> ");
+      document.write(fecha.toLocaleDateString("es-ES", opciones) + "<br/>");
+      // Usar la versión completa en español
+      opciones.month = "long"; //Ahora el mes escrito completo
+      document.write(fecha.toLocaleDateString("es-ES", opciones) + "<br/>");
+      // Usar la versión completa en español
+    </script>
+    Existen muchos métodos más como podéis ver en:
+    <a href="http://www.w3schools.com/jsref/jsref_obj_date.asp"> w3cschools</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString">options</a>
+    <a href="https://www.w3schools.com/jsref/jsref_tolocalestring.asp">Detalles</a>
+
+    Ahora vamos a darle un uso habitual. <br />
+    <script>
+      var navidad = new Date();
+      var hoy = new Date();
+      var diferencia;
+      navidad.setMonth(11); // Los meses empiezan en 0.
+      navidad.setDate(25); // El 25 de diciembre es navidad
+      document.write(
+        "Estamos en " + hoy.getTime() + " milisegundos desde 1970<br />"
+      );
+      document.write("La navidad es el " + navidad + "<br />");
+      if (hoy.getTime() < navidad.getTime()) {
+        diferencia = navidad.getTime() - hoy.getTime();
+        document.write("Aún quedan ");
+        document.write(Math.floor(diferencia / (1000 * 60 * 60 * 24)));
+        document.write(" días para navidad. <br /> ");
+      } else {
+        document.write("La navidad ya ha pasado :(<br/>");
+      }
+      // Si queremos obtener el año completo en el que estamos  en hora universal
+      document.write(hoy.getUTCFullYear() + "<br />");
+      // Si queremos obtener los milisegundos pero en UTC
+      document.write(hoy.valueOf() + "<br />"); // valueOf es lo mismo que en getTime
+      //Si queremos poner una fecha nueva entera ya tenemos jaleo.
+      // Tienes tus problemas....
+      var mifecha = new Date("2012/1/13");
+      document.write(mifecha.toLocaleDateString() + "<br />");
+      // El formato es Año, mes y día
+      diferencia = Date.parse("1111-1-11"); // mes dia y año
+      // Se puede usar "/" o "-" como separador.
+      // Diferencia no es un objeto date. Se obtiene un numero con el total de milisegundos desde 1970.
+      //mifecha= new Date(diferencia);
+      mifecha = new Date(diferencia);
+      //mifecha= new Date("2022/3/30");
+      if (mifecha != "Invalid Date") {
+        document.write(
+          mifecha.toLocaleDateString("es-ES", opciones) + "<br />"
+        );
+      }
+    </script>
+  </body>
+</html>

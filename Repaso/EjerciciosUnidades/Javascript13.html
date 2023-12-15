@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Navigator </title>
+</head>
+
+<body>
+    <h1> Objeto navigator y familia
+        , o sea, ¡ detección!</h1>
+    Primero vamos a mostrar las propiedades de las que
+    dispone este objeto.
+    <script>
+
+        document.write("<h2>Objeto Navigator </h2>");
+        for (let i in window.navigator) {
+            document.write(i + " = " + navigator[i] + "<br />");
+        }
+    
+    </script>
+    <br>
+    <h2>Métodos y propiedades del Objeto Navigator</h2>
+    Al haber probado en distintos navegadores veréis que
+    hay muchas propiedades y métodos que son
+    completamente distintos. <br />
+    <strong>appCodeName</strong> <br />
+    <strong>appName</strong> <br />
+    <strong>appVersion</strong> <br />
+    <strong>cookieEnabled</strong> <br />
+    <strong>language</strong> <br />
+    <strong>platform</strong> <br />
+    <strong>product</strong> <br />
+    <strong>userAgent </strong> <br />
+    <strong>mimeTypes</strong>
+    y el método <br />
+    <strong>javaEnabled() </strong> <br />
+    <h2>Empezando a utilizar unas comprobaciones básicas. </h2>
+    <script>
+        if (navigator.javaEnabled()) {
+            document.write("Por favor mantenga al día Java");
+            document.write("para evitar problemas de");
+            document.write("seguridad.<br />"); // Java Activado
+        } else {
+            document.write("Bien hecho, tienes Java(tm)");
+            document.write("desactivado.<br />"); // Java Desactivado
+        }
+        if (navigator.cookieEnabled)
+            document.write("Las Cookies están habilitadas.<br />");
+        else
+            document.write("Las Cookies no están habilitadas.<br />");
+        if (navigator.onLine) {
+            document.write("Al estar Online puedes acceder");
+            document.write(" completamente a tus servicios<br />");
+        } else
+            document.write("Estás offline<br />");
+        document.write("<br />Ahora saludar en el idioma");
+        document.write(" del cliente.<br />");
+        switch (navigator.language) {
+            case "es":
+                document.write("Hola");
+                break;
+            case "es-ES":
+                document.write("Hola");
+                break;
+            case "en":
+                document.write("Hello");
+                break;
+            case "fr":
+                document.write("Salut");
+                break;
+            case "en-UK":
+                document.write("Hello \(con acento pijo\)");
+                break;
+            case "en-US":
+                document.write("Hello \( con sombrero tejano\)");
+                // Los códigos de lenguaje os van a 
+                // servir para personalizar los mensajes y las fechas al cliente.
+            default: 
+                document.write("No te reconozco. ");
+        }
+    </script>
+    <br />
+    <h2> Proceso de detección del navegador</h2>
+    Aprovechando que IndexOf nos dice si hay algo en una cadena y su
+    posición, si el valor es distinto -1 entonces indicamos la versión.
+    <br />
+    <script>
+        var pos = 0,
+            cadenaNavegador = "No detectado",
+            version = -1;
+        console.log(navigator.userAgent);
+        if (navigator.userAgent.indexOf("MSIE") != -1) {
+            cadenaNavegador = "Internet Explorer";
+            pos = navigator.userAgent.indexOf("MSIE");
+            version = navigator.userAgent.substring(pos + 4,4);
+        } else if ((navigator.userAgent.indexOf("rv:") != -1) && (
+            (navigator.userAgent.indexOf(".NET") != -1)||
+            navigator.userAgent.indexOf("Trident") != -1) ) 
+            { // Comprobando si es Internet Explorer 11 o superior
+            cadenaNavegador = "Internet Explorer"; // No lo he probado!
+            pos = navigator.userAgent.indexOf("rv:");
+            version = navigator.userAgent.substring(pos + 3, pos + 7);
+        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+            cadenaNavegador = "FireFox";
+            pos = navigator.userAgent.indexOf("Firefox");
+            version = navigator.userAgent.substring(pos + 8);
+        } else if (navigator.userAgent.indexOf("OPR") != -1) { // Para el Opera antiguo. 
+            cadenaNavegador = "Opera";
+            pos = navigator.userAgent.indexOf("OPR");
+            version = navigator.userAgent.substring(pos + 4);
+        }  else if (navigator.userAgent.indexOf("Edg") != -1) {
+            cadenaNavegador="Microsoft Edge";
+            pos = navigator.userAgent.indexOf("Edg");
+            version = navigator.userAgent.substring(pos + 4);
+        }
+        else if (navigator.userAgent.indexOf("Chrome") != -1) {
+            cadenaNavegador = "Chrome";
+            pos = navigator.userAgent.indexOf("Chrome");
+            version = navigator.userAgent.substring(pos + 7);
+            document.write(version);
+            version = version.split(" ")[0];
+            // Convertimos la cadena en un array siendo el espacio el separador. Después accedemos a la primera posición (0). 
+            // Si, es muy raro,
+            // pero funciona
+
+        }
+
+        document.write("<br />Tu navegador es: " + cadenaNavegador);
+        document.write(" " + version);
+    </script>
+    <h2>Mimes</h2>
+    Ahora vamos a ver los tipos <strong>mime</strong> de archivos soportados
+    por el navegador.
+    <script>
+        for (let i in navigator.mimeTypes) {
+            document.write("<br />" + i + " " + navigator.mimeTypes[i] + "<br />");
+        }
+    </script>
+    No es muy fiable. Probad con distintos navegadores.
+</body>
+</html>
+

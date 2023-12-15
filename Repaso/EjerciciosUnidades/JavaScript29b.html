@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Objetos ES6 </title>
+</head>
+
+<body>
+    <script>
+        // Nuevo sistema de objetos a partir de EcmaScript 6.
+        // ES6 ahora se llama ES2015 también.
+
+
+        class Bicho {
+            
+            constructor(nombre) {
+                this.nombre = nombre;
+            }
+         
+            hablar() {
+                console.log(this.nombre + ' hace un ruido.');
+            }
+        }
+        
+        class Lagarto extends Bicho {
+            hablar() {
+                super.hablar();
+                console.log(this.nombre + ' buaua.');
+            }
+        }
+
+        let p = new Lagarto('Dart');
+        p.hablar();
+    
+        class serVivo {    
+            _peso;        
+            constructor(pesoNuevo) {
+                this.peso = pesoNuevo;
+
+            }
+            get peso() {
+                return this._peso;
+            }
+            set peso(nuevoPeso) {
+                if(nuevoPeso>0)
+                     this._peso = nuevoPeso;
+                else 
+                    this.peso=0;
+            }
+            toString() {
+                return "El peso es " + this.peso + "<br>";
+            }
+        }
+        let bichos=new serVivo(123);
+        bichos.peso=-134;
+        // bichos.peso(-134);
+        bichos._peso=-133; // Nunca acceder así
+        document.write(bichos.peso);
+        //debugger;
+        class Vegetal extends serVivo {
+            _altura;
+            constructor(peso, altur) {
+                super(peso);
+                //this.setAltura(altur);
+                this.altura=altura;
+            }
+           
+            get altura() {
+                return this._altura;
+            }
+            set altura(nuevaAltura) {
+                if (nuevaAltura<0)
+                    this._altura=0;
+                else 
+                    this._altura = nuevaAltura;
+            }
+            /*
+            setAltura(nuevaAltura) {
+                if (nuevaAltura<0)
+                    this._altura=0;
+                else 
+                    this._altura = nuevaAltura;
+            }*/
+            toString() {
+                let devolver = super.toString();
+                devolver = devolver + "La altura es " + this._altura + "<br>";
+
+                return (devolver);
+            }
+       
+        }
+        let bicho = new serVivo(12);
+        bicho.peso = 33; // Es realmente un setPeso(33)
+        let planta = new Vegetal(13, -12);
+        document.write(bicho);
+        document.write(planta);
+        console.log(planta);
+
+    </script>
+
+<script>
+
+// static hace la referencia a que el método se puede crear sin instanciar.
+
+class Mates {
+    static areaCuadrado (lado)  {
+        return(lado*lado);
+      }
+    static areaRectángulo (base, altura) {
+        return (base*altura);
+     }
+    static get PI() {
+    return 3.14;
+    }
+}
+
+console.log(Mates.areaCuadrado(2));
+console.log(Mates.PI);
+</script>
+</body>
+
+</html>

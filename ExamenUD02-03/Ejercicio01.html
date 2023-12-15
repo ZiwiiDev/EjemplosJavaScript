@@ -1,0 +1,59 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>· Ejercicio 01 Examen | Oliver Fabian Stetcu ·</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      // Realicemos un programa que lee un número, lo muestra en pantalla, y hace un bucle con el mismo de 1 a 50
+      document.write("<h2>· Ejercicio 01 ·</h2>");
+
+      // let variable1,variable2=3; //declaro variables.    MAL
+      let variable1 = 3; // Agrego una coma para declarar correctamente ambas variables.
+      let variable2 = 3; // Inicializo las dos variables a 3 juntas es mala práctica, por eso las separo.
+
+      // nombre=alert(“dime tu nombre”);    MAL
+      let nombre = prompt("Dime tu nombre"); // Cambio el 'alert' por 'prompt' para recibir la entrada del usuario.
+
+      // variable1=Math.Random(1)*50; // Genero un número al azar entre 0 y 1 y lo multiplico por 50    MAL
+
+      // Le sumo 1 porque con el Math.random() * 50 sólo llega a 49.
+      variable1 = Math.random() * 50 + 1; // He corregido el nombre del método 'random' y he eliminado el argumento para que el número máximo generado sea 50.
+
+      let i = variable1; // He inicializado 'i' con el valor de 'variable1' para que el bucle funcione correctamente.
+      // Utilizo la variable 'i' para el bucle while para que la variable1 no sea negativa.
+
+      // while (true) { // voy a mostrar el nombre  MAL (WHILE (TRUE) NO HAY QUE HACERLO NUNCA, AL IGUAL QUE IF (...) BREAK; O UN IF(TRUE))
+      while (i > 0) {
+        //let i;    // contador que se va a reducir desde la variable1 que ha generado un número entre 0 y 50.  MAL
+
+        // if (i=0) {   MAL (porque nunca va a suceder esta condición, directamente se debe mostrar el document.write())
+        //  break;  // NUNCA HAY QUE PONER IF (...) break;
+        // }
+        // else document.write(nombre);  DE POR SÍ ESTÁ MAL HACERLO ASÍ, PERO EN CASO DE QUE EL "IF" ESTUVIERA BIEN LE FALTA AL ELSE ABRIR LLAVE Y CERRAR LLAVE, AL IGUAL QUE EL PUNTO Y COMA:
+        // "else { document.write(nombre); }"
+
+        // He cambiado el 'true' por 'i > 0' para que el bucle funcione correctamente.
+        document.write(nombre + "<br>"); // He agregado "<br>" para mostrar cada nombre en una nueva línea y mejorar la lectura de la salida del programa.
+        i--;
+      }
+
+      /* Cambios realizados:
+      * He corregido las declaraciones de las variables "variable1" y "variable2" para separarlas con una coma.
+      * He inicializado la "variable1" y "variable2" a 3 por separado para una buena práctica.
+      * He cambiado el alert por prompt para solicitar y almacenar el nombre del usuario correctamente.
+      * He corregido el método Math.Random por Math.random para generar un número aleatorio entre 0 y 1.
+      * He inicializado la variable "i" con el valor de "variable1" para que el bucle funcione correctamente.
+      * He cambiado la condición del bucle while a "i > 0" para que el bucle se ejecute mientras "i" sea mayor que 0.
+      * He agregado <br> en la línea que utiliza document.write para mostrar cada nombre en una nueva línea en el navegador.
+      * He eliminado el bloque if ya que no es necesario para este bucle.
+      */
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

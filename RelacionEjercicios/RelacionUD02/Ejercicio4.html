@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        4. Obtener un número a través de un prompt y comprobar que que la entrada es un número. Con
+        el resultado anterior comprueba si es par.
+        */
+
+      /* VARIABLE */
+      let entrada;
+
+      /* PROGRAMA */
+      entrada = parseInt(prompt("Dígame un número"));         // Sólo acepta escribir números
+
+      // Condición para validar que sean números
+      if (isNaN(entrada) || !isFinite(entrada)) {
+        document.write("<p><strong>¡No has introducido ningún número!</strong></p>");       // Indico que no se ha introducido un número
+      } else {    // Es número
+        if (entrada % 2 == 0) {   // Es par
+          document.writeln('<p>El número "' + entrada + '" es par.</p>');    // Imprimo que es par
+        } else {      // No es par
+          document.writeln('<p>El número "' + entrada + '" es impar.</p>');  // Imprimo que es impar
+        }//end else
+      }//end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

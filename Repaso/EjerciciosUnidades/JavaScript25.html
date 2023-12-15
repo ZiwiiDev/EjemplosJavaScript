@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Objetos literales. </title>
+</head>
+<body>
+
+<script>
+// template strings/ template literals
+let val=34;
+let literal=` El valor es
+              ${val}
+			  ${val/2}`;
+console.log(literal);
+
+// Un objeto literal.
+// Solo para repasar.
+var coche = {
+	modelo: "Testarrosa",
+	fabricante: "Ferrari",
+	año: 1984, // No es buena idea utilizar la ñ y otros caracteres similares.
+    color: "rojo",
+	arrancado: false,
+	arrancar: function () {
+		this.arrancado=true;
+        return("Arranco el coche.");
+	    },
+	apagar: function () {
+		this.arrancado=false;
+		return("Apago el coche.");
+    	},
+    conducir: function() {
+		var devolver;
+			if (this.arrancado)
+			{
+				devolver="Apatrullando la ciudad";
+			}
+			else
+			{
+				devolver="No tienes el coche en marcha";
+			}
+		return(devolver);
+	    }
+	};
+
+	document.write("Intento conducir con el coche apagado "+coche.conducir()+" <br />");
+	coche.arrancar();
+	document.write("Intento conducir con el coche encendido "+coche.conducir()+" <br />");
+	// Añado un método nuevo.
+	coche.pinchar=function ()  {
+		 return("No puedes pinchar este coche");
+	     }
+	document.write("Cojo un pincho "+coche.pinchar());
+    
+    // Para eliminarlo
+    delete coche.pinchar;
+    delete coche.año;
+	
+
+    document.write(coche.año); // Da undefined.
+    if (coche.pinchar) // Si existe el método.
+       document.write(coche.pinchar()); // Sin el if cuelga el script.    
+
+</script>
+
+</body>
+</html>

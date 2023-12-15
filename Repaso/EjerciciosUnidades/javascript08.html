@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="UTF-8">
+	<title>Switch </title>
+</head>
+<body>
+    <h1>¿Qué desea realizar? </h1>
+    <ol>
+        <li>Saltar. </li>
+        <li>Chillar.</li>
+        <li>Trotar. </li>
+        <li>Gorronear. </li>
+    </ol>
+<script>
+let entrada=null;
+//entrada=parseInt(prompt("Dime tu opción","4"));
+entrada=prompt("Dime tu opción","4");
+//document.write(typeof i);
+
+if (entrada)
+    { // Por si no hemos metido nada. Si está definido. Ya sea con null, undefined, false, 0 o cadena vacía. 
+       document.write(entrada+"<br>");
+        switch (entrada.toString())
+        {            
+            case "1": document.write("Acabas de Saltar"); break;
+            case "2": document.write("Es imposible que puedas gritar más fuerte."); break;
+            case "3": document.write("Pareces un caballo de carreras."); break;
+            case "4": document.write("Le coges a tu compañero una bolsa de patatas"); break;
+            case "idiota": document.write("Eso lo serás tu"); break;
+            case "ligar": window.open("https://www.eviebot.com/es/"); break;
+            default:document.write("Elige algo que puedas hacer la próxima vez");
+        }        
+    }
+    // Los switchs se pueden hacer con enteros, pero para eso tienes que utilizar
+    // parseInt()
+    // El objeto window lo veremos con más detalle en otros temas.
+    // Probar a realizar un bucle while para que pregunte más cosas)
+ 
+    else {
+    document.write("<br>No has puesto nada.");
+     document.write("<br> La próxima vez asegurate de que escribes algo.");
+    }
+</script>
+
+</body>
+</html>

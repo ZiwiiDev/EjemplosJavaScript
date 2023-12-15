@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 6 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        6. Cree un script que pregunte por los datos de los alumnos (nombre, sexo y edad) y si es mayor
+        de edad genere un carnet que le autorice a salir del centro. Ese carnet debe incorporar una
+        imagen (puedes cogerla de Internet) de tamaño 90x90.
+        */
+
+      /* VARIABLES */
+      var nombre, sexo, edad;
+
+      /* PROGRAMA */
+      nombre = prompt("¿Cómo te llamas?"); // Pregunto el nombre
+      sexo = prompt("¿Cuál es tu género?"); // Pregunto el género
+      edad = prompt("¿Cuál es tu edad?"); // Pregunto la edad
+
+      // Si es mayor de edad
+      if (edad >= 18) {
+        // Si no tiene más de 25 años (sería raro tener 25 años e ir a un instuto)
+        if (edad >= 25) {
+          document.writeln("<p><strong>¡La persona se ha colado en el centro, tiene demasiados años!</strong></p>");
+        } else {
+          document.write("<p><img src='./images/ejercicio6foto.jpg' width='90' height='90'/></p>"); // La imagen del alumno
+          //document.write("<p><img src='https://a.wattpad.com/useravatar/yosoyMCclovin.256.131758.jpg' width='90' height='90'/></p>");   // La imagen del alumno con link, no descargada
+          document.writeln("<p><strong> Nombre: </strong>" + nombre + "</p>");
+          document.writeln("<p><strong> Sexo: </strong>" + sexo + "</p>");
+          document.writeln("<p><strong> Edad: </strong>" + edad + "</p>");
+        }//end else
+      } else {
+        document.writeln(
+          "<p><strong>¡El alumno es menor de edad, no está autorizado para salir del centro!</strong></p>"
+        );
+      } //end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Math </title>
+</head>
+<body>
+<h1> Objeto Math , o sea, ¡Mates!</h1>
+Este objeto es más fácil que el Date.
+Se puede utilizar directamente.
+Veamos el Random. Se genera un número al azar entre 0 y 1.<br />
+<script>
+	let azar=Math.random();
+	document.write(azar+"<br />");
+</script>
+    Ahora vamos a redondear con los diferentes métodos. <br />
+ <script>
+	 let miCeil, miRound, miFloor;
+	 azar=azar*100; // Para que tenga más gracia.
+	 miCeil=Math.ceil(azar); // si vale 1,01 pasa a 2. solo si vale 1 se
+     // queda en 1
+	 miRound=Math.round(azar); // Por ejemplo si sale un 0, algo >=0,5 pasa a 1 menos pasa a 0
+	 miFloor=Math.floor(azar); // Trunca los decimales. 1.2 -> 1, 1.9 -> 1.
+	 document.write("Número: "+ azar+"<br /> Ceil "+miCeil+" Round ");
+	 document.write(miRound + " Floor " + miFloor+ "<br />");
+ </script>
+ Existen unas funciones muy interesantes para saber cual es el máximo de
+ dos números distintos. <br />
+ <script>
+	 var num1=Math.random();
+	 var num2=Math.random();
+	 console.log(num1+" "+num2);
+	 document.write("El número mayor " + Math.max(num1,num2) +"<br />");
+	 document.write("El número menor " + Math.min(num1,num2) +"<br />");
+ </script>
+ Existen una serie de valores mátemáticos predefinidos.
+ <script>
+	 document.write("El número e "+ Math.E +"<br />");  // Número e
+     document.write("El número PI" +Math.PI+"<br />"); //  PI
+     document.write("La raíz cuadrada de 2 "+Math.SQRT2+"<br />");
+     document.write("Raíz cuadrada de 1/2 " +Math.SQRT1_2+"<br />");
+	 document.write("El logaritmo neperiano de 2 " +Math.LN2+"<br />");
+	 document.write("El logaritmo neperiano de 10 "+ Math.LN10+"<br />");
+  	 document.write("El logaritmo base 2 de e "+ Math.LOG2E+"<br />");
+	 document.write("El logaritmo base 10 de e "+ Math.LOG10E+"<br />");
+ </script>
+
+</body>
+</html>

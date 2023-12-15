@@ -1,0 +1,47 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>· Ejercicio 02 Examen | Oliver Fabian Stetcu ·</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      // 2. Generación de fechas aleatorias. Vamos a generar tres números al azar.
+      document.write("<h2>· Ejercicio 02 ·</h2>");
+
+      /* VARIABLES */
+      // Genero números aleatorios para día, mes y año.
+      let dia = Math.floor(Math.random() * 31) + 1; // Para los días: 1-31
+      let mes = Math.floor(Math.random() * 12); // Para los meses: 0-11
+      let año = Math.floor(Math.random() * (2100 - 1900 + 1)) + 1900; // Para los años: 1900-2100
+
+      // Creo una variable donde almaceno las opciones para aplicarle el formato deseado
+      let opcionesFecha = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+
+      /* PROGRAMA */
+      // Compruebo si el mes es febrero y tiene 29 o más días
+      if (mes === 1 && dia >= 29) {
+        // Genero nuevamente el día si es febrero y tiene más de 29 días
+        dia = Math.floor(Math.random() * 29) + 1; // Se vuelve a generar el día con un máximo de 29 días (no cambio los límites).
+      }
+
+      // Creo la fecha con los datos generados
+      let fecha = new Date(año, mes, dia);
+
+      // Convierto la fecha a formato español
+      let fechaFormateada = fecha.toLocaleDateString("es-ES", opcionesFecha);
+
+      // Muestro la fecha por pantalla
+      document.write("<strong>Fecha generada aleatoriamente:</strong> ", fechaFormateada);
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

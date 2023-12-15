@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>El objeto Document</title>
+</head>
+<body>
+<h1>Objeto Document</h1>
+<table border="1px">
+	<caption><strong>Colecciones del objeto Document</strong></caption>
+	<thead>
+	<tr><th scope="col">Colección</th><th scope="col">Descripción</th></tr>
+	</thead>
+		<tbody>
+		<tr>
+		<td><b>forms[]</b></td>
+		<td>Es un array que contiene todos los formularios del documento.</td>
+		</tr>
+		<tr>
+		<td><b>images[]</b></td>
+		<td>Es un array que contiene todas las imágenes del documento.</td>
+		</tr>
+		<tr>
+		<td><b>links[]</b></td>
+		<td>Es un array que contiene todos los enlaces del documento. Incluye las etiquetas area y no solo a.</td>
+		</tr>
+		</tbody>
+</table>
+<br />
+<table border="1px">
+	<caption><strong>Propiedades del objeto Document</strong></caption>
+	<thead>
+	<tr><th scope="col">Propiedad</th>
+		<th scope="col">Descripción</th></tr>
+	</thead>
+		<tbody>
+		<tr>
+		<td><b>cookie</b></td>
+		<td>Devuelve todos los nombres/valores de las cookies en el documento.</td>
+		</tr>
+		<tr>
+		<td><b>domain</b></td>
+		<td>Cadena que contiene el nombre de dominio del servidor que carga el documento.</td>
+		</tr>
+		<tr>
+		<td><b>referrer</b></td>
+		<td>Cadena que contiene la URLdel documento desde el cuál llegamos al documento actual.</td>
+		</tr>
+		<tr>
+		<td><b>title</b></td>
+		<td>Devuelve o ajusta el título del documento.</td>
+		</tr>
+		<tr>
+		<td><b>URL</b></td>
+		<td>Devuelve la URL completa del documento.</td>
+		</tr>
+		</tbody>
+</table>
+<br />
+<table border="1px">
+    <caption><strong>Propiedades del objeto Document</strong></caption>
+	<thead>
+	<tr><th scope="col">M&eacute;todo</th><th scope="col">Descripci&oacute;n</th></tr>
+	</thead>
+		<tbody>
+		<tr>
+		<td><b>close()</b></td>
+		<td>Cierra el flujo abierto previamente con <b>document.open()</b>.</td>
+		</tr>
+		<tr>
+		<td><b>getElementById()</b></td>
+		<td>Para acceder a un elemento identificado por el id escrito entre par&eacute;ntesis.</td>
+		</tr>
+		<tr>
+		<td><b>getElementsByName()</b></td>
+		<td>Para acceder a los elementos identificados por el atributo <b>name</b> escrito entre par&eacute;ntesis.</td>
+		</tr>
+		<tr>
+		<td><b>getElementsByTagName()</b></td>
+		<td>Para acceder a los elementos identificados por el tag o la etiqueta escrita entre par&eacute;ntesis.</td>
+		</tr>
+		<tr>
+		<td><b>open()</b></td>
+		<td>Abre el flujo de escritura para poder utilizar <b>document.write()</b> o <b>document.writeln</b> en el documento.</td>
+		</tr>
+		<tr>
+		<td><b>write()</b></td>
+		<td>Para poder escribir expresiones HTML o código de JavaScript dentro de un documento.</td>
+		</tr>
+		<tr>
+		<td><b>writeln()</b></td>
+		<td>Lo mismo que <b>write()</b> pero añade un salto de línea al final de cada instrucción.</td>
+		</tr>
+		</tbody>
+</table>
+
+
+<h1> Objeto <strong>Document</strong></h1> <br />
+<strong>Propiedades</strong>
+<script>
+ document.writeln("Hola");
+ document.write("URL" +document.URL+"<br>");
+ document.write("title" +document.title+"<br>");
+ document.title="Pepito grillo";
+ 
+ //console.log(document.URL);
+
+ for (let i in document)
+    {
+	 document.write("Método " +i+"  " + document[i]+" <br />");
+    }
+ </script>
+ <h2> Ahora veamos los enlaces que existen.  Y cambiaremos el de yahoo a as</h2>
+ <img id="guape" src="http://desmotivaciones.es/demots/201101/images_948.jpg" /> <br />
+ <a href="http://www.yahoo.es">yahoo</a><br />
+ <a href="http://www.google.com">google</a><br />
+ <script>
+ // Para averiguar el número de enlaces utilizamos la propiedad length
+ var total=document.links.length;
+  for (var i=0; i < total;i++)
+   {
+	 document.write("Enlace " +i+" " + document.links[i]+"<br />");
+   }
+ document.links[0].href="http://as.com";
+ document.write("Antes"+ document.images[0].src);
+ // Para cambiar la imagen hacemos lo siguiente
+ document.images[0].src="https://i.ytimg.com/vi/kFyiFdCYhRA/maxresdefault.jpg";
+ // Es igual al anterior. 
+ document.getElementById("guape").src="https://i.ytimg.com/vi/kFyiFdCYhRA/maxresdefault.jpg"
+
+ document.write("<br>"+document.URL);
+ //document.location="http://google.es";
+</script>
+</body>
+</html>

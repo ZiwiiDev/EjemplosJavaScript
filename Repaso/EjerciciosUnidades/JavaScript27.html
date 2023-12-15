@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Prototype. </title>
+</head>
+<body>
+Esto es la base de la herencia en JavaScript <br />
+Es lo que te permite no duplicar las funciones iguales
+en cada objeto tirando del objeto padre.  <br />
+Además hace que todos los objetos que se han creado
+de la misma clase se les añada a la vez una propiedad.
+<br />
+<script type="text/javascript">
+    function Libro(titulo, autor)
+    {
+        this.titulo=titulo;
+        this.autor=autor;        
+    }
+    // Ahora crearé dos objetos libro
+    var libro1 = new Libro("Isaac Asimov", "Fundación");
+    var libro2 = new Libro("George R. R. Martin", "Muerte de la luz");
+    // Si añadimos una propiedad nueva como ya conocemos
+    // se va a producir que sólo se añade a un objeto.
+
+    // Para añadir una propiedad nueva se utliza
+    // el objeto prototype del que disponen
+    // todos los objetos. Esta propiedad será accesible
+    // por todos los objetos.
+    
+    Libro.prototype.editorial = "Plaza y Janes";
+    libro1.editorial="Random House";
+    document.write(libro1.editorial + "<br />");
+    document.write(libro2.editorial + "<br />");
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------------------------->
+  <body>
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        5. Cálculo de volumen y área de un casquete esférico.
+        • Disponemos de 2 formas para calcular el área y volumen de un casquete esférico (elija una):
+            • Área y volumen a partir del radio de la base (a) y la altura (h) del casquete.
+            • Área y volumen a partir del radio de la esfera (R) y la altura del casquete (h).
+        • Comprobar la entrada de datos con lo visto hasta ahora en el curso (o sea, sin expresiones regulares).
+        • Aproximar con 5 dígitos decimales. 
+        */
+
+      /* VARIABLES */
+      let radio, altura, area, volumen;
+
+      /* PROGRAMA */
+      document.write("<h2>· Ejercicio 05 ·</h2>");
+
+      // Solicito al usuario el radio de la base (a) y la altura (h)
+      radio = parseFloat(prompt("Introduce el radio del casquete esférico:"));
+      altura = parseFloat(prompt("Introduce la altura del casquete esférico:"));
+
+      // Calcularé el área y volumen a partir del radio de la base (a) y la altura (h) del casquete.
+      // Verifico si los valores ingresados son números positivos válidos
+      if (radio <= 0 || altura <= 0 || isNaN(radio) || isNaN(altura)) {
+        document.write("¡Debes insertar números positivos!");
+      } else {
+        // Calculo el área del casquete esférico. Utilizo la fórmula del cálculo del área del enunciado de la actividad.
+        area = (2 * Math.PI * radio * altura).toFixed(5);   // Aproximo a 5 decimales con toFixed
+
+        // Calculo el volumen del casquete esférico. Utilizo la fórmula del cálculo del volumen del enunciado de la actividad.
+        volumen = ((1 / 3) * Math.PI * Math.pow(altura, 2) * (3 * radio - altura)).toFixed(5);      // Aproximo a 5 decimales con toFixed
+
+        // Muestro los resultados
+        document.write("Área del casquete: " + area + "<br><br>");
+        document.write("Volumen del casquete: " + volumen + "<br>");
+      }//end else
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

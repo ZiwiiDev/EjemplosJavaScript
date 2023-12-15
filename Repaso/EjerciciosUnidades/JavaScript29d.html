@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privados y excepciones</title>
+  </head>
+  <body>
+    <script>
+      // Javascript ya soporta privados.
+      // En estos ejemplos vamos a aprender a proteger las propiedades/atributos
+      // de la clase para que no puedan ser modificados desde fuera y solo accesibles
+      // desde los setters y getters que aprendimos a crear
+      // También soporta excepciones y recomiendo usarlas en clases.
+      // Para las tareas es obligatorio.
+      class Pollo {
+        // Los privados los declaramos así. Con un #
+        #_nombre; // _nombre para no confundirlo con el setter nombre.
+        #_edad;
+        constructor(nombre, edad) {
+          this.nombre = nombre; // Se llama directamente al setter
+          this.edad = edad;     // Si no lo haces no van las comprobaciones
+          this.#miprivado(); // ejemplo de como llamar al método privado.
+                             // viene precedido de this. 
+        }
+        #miprivado() {
+          console.log("Me llaman");
+        }
+        set nombre(nuevoNombre) {
+          // no esté vacío y además que sea cadena
+          // implementar eso como ejercicio. 
+          this.#_nombre=nuevoNombre;
+        }
+        set edad(nuevaEdad) {
+          // Comprobar que sea un número y no NaN menor de 100
+          // Positivo.
+          // entero. 
+          // Termine de hacer las comprobaciones. 
+          if (isNaN(nuevaEdad)||(nuevaEdad>100)||(nuevaEdad<=0)) {
+            this.#_edad = 100;  // no hace falta ya con excepciones. 
+            throw "La edad no es válida";
+            // el código debajo no se ejecuta.
+          } else this.#_edad = nuevaEdad;
+        }
+        get edad() {
+          return this._edad;
+        }
+        get nombre() {
+          return this._nombre;
+        }
+        toString() {
+          return "\n" + this.#_nombre + " " + this.#_edad + "<br>";
+        }
+        
+      }
+      // Una vez creada la clase Pollo pasamos a crear instancias.
+      let pollo1;
+      let pollo2;
+      try {
+        pollo1 = new Pollo("Blanca", 11);
+        pollo2 = new Pollo("Andrés", 20);
+        document.write(pollo1 + pollo2);
+        pollo1.edad=10;
+      } catch (e) {
+        document.write("Excepción: " + e);
+      } finally {
+        if (!pollo2) console.log("No se ha podido crear alejandro");
+      }
+    </script>
+  </body>
+</html>

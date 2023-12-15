@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Algunas cosillas de cadenas.</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // i no es un nombre recomendable
+      let entrada = parseInt("      3      ");
+      entrada = prompt("Dime tu nombre");
+      document.write('"');
+      document.write(entrada + "<br>" + entrada.length + "<br>");
+      console.log(entrada);
+
+      //entrada=entrada.trim();
+
+      if (entrada.length != 0) {
+        // Por si no hemos metido nada.
+        //if (i != null)
+        let letra = null;
+        console.log("soy null", letra);
+        letra="";
+        console.log("dobles comillas", letra);
+        letra=undefined; // no le has asignado un tipo. 
+        document.write("Has introducido este nombre: " + entrada + "<br>");
+        var enMayusculas = entrada.toUpperCase();
+        document.write("Has introducido este nombre: " + enMayusculas + "<br>");
+        // Por si está en un idioma raro.
+        enMinusculas = entrada.toLocaleLowerCase();
+        //Si le quitas Locale obtiene la versión clásica.
+        document.write("Has introducido este nombre: " + enMinusculas + "<br>");
+        letra = entrada.charAt(1); // Las cadenas enmpiezan en 0
+        document.write(
+          "El caracter en la segunda (pos 1 real ya que empieza en 0) posición es " +
+            letra +
+            "<br>"
+        );
+        primeraO = entrada.indexOf("o"); // buscamos la posición de la primera "o" del texto
+        // Encuentra la primera o a
+        // partir de la posición 3.
+        // document.write("<br>" + i.indexOf('o',3)+ "<br>");
+        document.write(
+          "La primera 'o' aparece en la posición " + primeraO + "<br>"
+        );
+        trozoTexto = entrada.substring(1, 3); // La subcadena entre la posición 1 y 3.
+        document.write(
+          "La subcadena entre la posición 1 y 3: " + trozoTexto + "<br>"
+        );
+        sinEspacios = entrada.trim(); // Ahora vamos a quitar los espacios antes y después
+        document.write("La cadena sin espacios:" + sinEspacios + "<br>");
+        // En la página de w3schools podéis encontrar toda la tabla de operaciones
+        // con cadenas que no son objetos (las cadenas objetos las estudiaremos después).
+        // http://www.w3schools.com/js/js_strings.asp
+
+        console.log(entrada.length); // Es una propiedad no un método
+      } else {
+        document.write("<br>No has puesto nada. <br>");
+        document.write("La próxima vez asegurate de que escribes algo.");
+      }
+    </script>
+  </body>
+</html>

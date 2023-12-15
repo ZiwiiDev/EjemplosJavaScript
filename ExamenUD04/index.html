@@ -1,0 +1,102 @@
+<!----------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen UD04 · Oliver</title>
+  </head>  
+<!----------------------------------------------------------------------------------------------->
+  <body>
+    <p id="salida"></p>
+
+    <script type="module">
+        import { Alimana } from "./Alimana.js";
+        import { Exterminador } from "./Exterminador.js";
+
+        /* VARIABLES PARA "ALIMANA" */
+        let ratita;
+        let cucarachita;
+        let culebrita;
+        let grillo;
+        let otraAlimana1;
+        let otraAlimana2;
+        let otraAlimana3;
+        let otraAlimana4;
+        let errorAlimana;
+
+        // Creo los objetos de tipo "Alimaña"
+        try {
+            // EJEMPLO PARA QUE DE ERROR
+            //errorAlimana = new Alimana(1, "Alimana Fea");
+
+            ratita = new Alimana("Ratita", "Rata");
+            cucarachita = new Alimana("Cucarachita", "Cucaracha");
+            culebrita = new Alimana("Culebrita", "Culebra");
+            grillo = new Alimana("Grillo", "Otros");
+            otraAlimana1 = new Alimana("Grillo Feo", "Otros");
+            otraAlimana2 = new Alimana("Rata Gorda", "Rata");
+            otraAlimana3 = new Alimana("Cucaracha Negra", "Cucaracha");
+            otraAlimana4 = new Alimana("Culebra Roja", "Culebra");
+        } catch (e) {
+            console.error("¡ERROR!: No se pudo crear los objetos de tipo 'Alimaña'. " + e);
+        }//end catch
+
+        /* VARIABLES PARA "EXTERMINADOR" */
+        let exterminador1;
+        let errorExterminador;
+
+        // Creo los objetos de tipo "Exterminador"
+        try {
+            // EJEMPLO PARA QUE DE ERROR
+           //errorExterminador = new Exterminador("123456");
+
+            exterminador1 = new Exterminador("ABCD12");
+        } catch (e) {
+            console.error("¡ERROR!: No se pudo crear los objetos de tipo 'Exterminador'. " + e);
+        }//end catch
+
+        /* Creo un array llamado Plaga */
+        let Plaga = [];
+
+        try {
+            Plaga = [ratita, cucarachita, culebrita, grillo, otraAlimana1, otraAlimana2, otraAlimana3, otraAlimana4];
+        } catch (e) {
+            console.error("¡ERROR!: No se pudo añadir las alimañas al array 'Plaga'. " + e);
+        } finally {
+            let infoPlagaHTML;
+
+            // Ordeno el array por tipo alfabéticamente inverso
+            Plaga.sort((unaAlimana, miAlimana) => miAlimana.tipo.localeCompare(unaAlimana.tipo));
+
+            infoPlagaHTML = "<strong>Alimañas antes de la exterminación masiva ordenadas de forma inversa alfabéticamente:</strong><br>";
+
+            /* Muestro resultado ordenado de forma inversa alfabéticamente */
+            Plaga.forEach(miAlimana => {
+                // Muestro el resultado de la plaga ordenado de forma inversa alfabéticamente
+                infoPlagaHTML += miAlimana.toString() + "<br>";
+            });
+
+            /* Elimino alimañas de forma aleatoria */
+            Plaga.forEach((miAlimana, plaga) => {
+                if (exterminador1.matarAlimana(miAlimana)) {
+                    Plaga.splice(plaga, 1);
+                }
+            });
+
+            infoPlagaHTML += "<br><strong>Plaga después de la exterminación masiva:</strong><br>";
+
+            /* Muestro resultado después de la exterminación */
+            Plaga.forEach(miAlimana => {
+                // Muestro el resultado de la plaga después de la exterminación
+                infoPlagaHTML += miAlimana.toString() + "<br>";
+            });
+
+            // Imprimo todos los datos por pantalla
+            salida.innerHTML = infoPlagaHTML;
+        }//end finally
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------->

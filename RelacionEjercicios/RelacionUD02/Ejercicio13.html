@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 13 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        13. Calcule con tres bucles distintos (for, while y do while) los “n” primeros números primos.
+        “n” se pregunta en un prompt.
+        */
+
+      /* VARIABLES */
+      var n, numRaizCuadrada;
+      var contador = 0; // Contador de números primos encontrados
+      var numero = 2; // Inicializo en 2 ya que es el primer número primo
+      var divisor = 2; // Empezamos dividiendo entre 2, ya que todos los números mayores a 1 son divisibles por 1 y por sí mismos
+      var esPrimo = false;
+
+      /* PROGRAMA */
+      // PARA QUE UN NÚMERO SEA PRIMO TIENE QUE PODER DIVIDIRSE SÓLAMENTE POR 1 y SÍ MISMO
+
+      n = parseInt(prompt("Ingrese un número:")); // Solicito el valor de "n" al usuario. Sólo acepta escribir números.
+
+      // Si "n" es de tipo numérico y es mayor que 0
+      if (!isNaN(n) && n > 0) {
+        // Primero con un bucle for
+        document.write("<p><strong>Primeros " + n + " números primos (con bucle for):</strong></p>");
+
+        // Hago un bucle for que se ejecutará hasta que se encuentren los "n" números primos.
+        for (var i = 1; contador < n; i++) {    // Si el número no es negativo ni 0
+          esPrimo = true; // Es primo
+
+          // Hago un bucle for anidado para verificar si el número está entre todos los números en el rango desde el 2 hasta el número actual
+          for (var j = 2; j < numero; j++) {
+            // Compruebo si el número actual es divisible por algún número (de entre todos a partir de 2 hasta el número actual)
+            if (numero % j === 0) {
+              esPrimo = false; // Si el número es divisible no es primo
+            }//end if
+          }//end for
+
+          // Si es primo
+          if (esPrimo) {
+            document.write(numero + " ");
+            contador++; // El contador de números primos encontrados va incrementando
+          }//end if
+
+          numero++; // Incremento el número actual para verificar el siguiente número de la próxima iteración
+        }//end for
+
+        // Segundo con un bucle while
+        document.write("<p><strong>Primeros " + n + " números primos (con bucle while):</strong></p>");
+
+        // Reestablezco la inicialización de las variables
+        contador = 0;
+        numero = 2;
+
+        // Hago un bucle while que se ejecutará hasta que se encuentren los "n" números primos, parecido al for anterior
+        while (contador < n) {
+          esPrimo = true; // Es primo
+          divisor = 2; // Si inicializo a 1, todos los números serían primos, ya que 1 es un divisor válido para cualquier número
+
+          // Se ejecutará hasta que divisor sea menor que el número actual
+          while (divisor < numero) {
+            // Condición if para verificar si el número actual es divisible entre el divisor y da de resto 0
+            if (numero % divisor === 0) {
+              esPrimo = false; // Entonces el número actual no es primo (porque seguiría dividiendo)
+            }//end if
+
+            divisor++; // Se incrementa el divisor actual para verificar el siguiente divisor y comprobar si el siguiente número es divisible entre este divisor
+          }//end while
+
+          // Si es primo
+          if (esPrimo) {
+            document.write(numero + " ");
+            contador++; // El contador de números primos encontrados va incrementando
+          }//end if
+
+          numero++; // Incremento el número actual para verificar el siguiente número de la próxima iteración
+        }//end while
+
+        // Tercero con un bucle do-while
+        document.write("<p><strong>Primeros " + n + " números primos (con bucle do-while):</strong></p>");
+
+        // Reestablezco la inicialización de las variables
+        contador = 0;
+        numero = 2;
+
+        document.write(numero + " ");  // Comienzo mostrando el número 2, que es el primer número primo
+        contador++; // Incremento el contador ya que he mostrado el primer número primo
+
+        // Hago un bucle do-while que se ejecutará hasta que se encuentren los "n" números primos, parecido a los 2 bucles anteriores
+        do {
+          esPrimo = true; // Es primo
+          divisor = 2; // Si inicializo a 1, todos los números serían primos, ya que 1 es un divisor válido para cualquier número
+
+          do {
+            // Condición if para verificar si el número actual es divisible entre el divisor y da de resto 0
+            if (numero % divisor === 0) {
+              esPrimo = false; // Entonces el número actual no es primo (porque seguiría dividiendo)
+            }//end if
+
+            divisor++; // Se incrementa el divisor actual para verificar el siguiente divisor y comprobar si el siguiente número es divisible entre este divisor
+          } while (divisor < numero); // Se ejecutará hasta que divisor sea menor que el número actual
+
+          // Si es primo
+          if (esPrimo) {
+            document.write(numero + " ");
+            contador++; // El contador de números primos encontrados va incrementando
+          }//end if
+
+          numero++; // Incremento el número actual para verificar el siguiente número de la próxima iteración
+        } while (contador < n);   // Se ejecutará hasta que se encuentren los "n" números primos
+      } else {
+        document.write("<p><strong>¡Ingrese un número válido y mayor que 0!</strong></p>");
+      }//end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------------------------->
+  <body>
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        4. Vamos a trabajar con los objetos del navegador y vamos a averiguar si nuestro navegador tiene las siguientes propiedades u métodos.
+            • Avisar por escrito si el navegador está en pantalla completa o no.
+            • Detectar si estás en un móvil o no. Para ello debes buscar "mobile" dentro del useragent.
+            • Pista: usa if para saber si algo está disponible.
+            • Explique en los comentarios.
+        */
+
+      /* VARIABLES */
+      let ventana = "";
+      let estaEnMovil = false;
+
+      /* PROGRAMA */
+      document.write("<h2>· Ejercicio 04 ·</h2>");
+      for (var i in window) {
+        ventana += i + " " + window[i] + "<br>";    // Saco el método o propiedad y el valor del navegador
+      }//end for
+
+      // Verifico si está en un dispositivo móvil buscando "mobile" en el user agent.
+      if (navigator.userAgent.match(/mobile/i)) {
+        estaEnMovil = true;   // Si nuestro navegador está en dispositivo móvil cambio la variable a true
+      }//end if
+
+      // Si nuestro navegador está en dispositivo móvil
+      if (estaEnMovil) {
+        document.write("¡El navegador ESTÁ en un dispositivo móvil!<br><br>");    // Está el navegador en móvil
+      } else {
+        document.write("¡El navegador NO ESTÁ en un dispositivo móvil!<br><br>"); // No está el navegador en móvil
+      }//end else
+
+      // Verifico si el navegador está en pantalla completa. Compruebo con las propiedades del navegador de "screenX" y "screenY" comprobando si son 0.
+      if (!(ventana.includes("screenX 0") && ventana.includes("screenY 0"))) {
+        document.write("¡El navegador ESTÁ en pantalla completa!");     // El navegador está en pantalla completa
+      } else {
+        document.write("¡El navegador NO ESTÁ en pantalla completa!");  // El navegador no está en pantalla completa
+      }//end else
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

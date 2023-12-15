@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Esta página si pasa el test de W3C</title>
+  </head>
+
+  <body>
+    <script>
+      let entrada = parseInt(prompt("Digame un número", "1"));
+       // "1" es el valor por defecto
+      document.write(entrada + "<br>");
+      console.log("Es el número: " + entrada);
+      if (entrada.toString() == "NaN") 
+        // Una forma para comprobar.
+        document.write("1. No has introducido ningún número.<br>");
+      if (isNaN(entrada) || !isFinite(entrada)) {
+        // Veremos más formas el tema que viene.
+        document.write("2. No has introducido ningún número.<br>");
+      }
+    </script>
+  </body>
+</html>

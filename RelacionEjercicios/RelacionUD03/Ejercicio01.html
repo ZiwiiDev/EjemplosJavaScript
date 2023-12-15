@@ -1,0 +1,63 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------------------------->
+  <body>
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        1. En esta tarea vamos a crear un software adivinatorio brujIA que responda a nuestras preguntas. 
+        Lo primero es que le hagamos una pregunta. A esa pregunta el software brujIA va a lanzar los dados. 
+        Si el número es superior a 0.499999 entonces la respuesta es sí. Si la pregunta contiene "DWEC" la brujIA se enfada.
+
+          // Pregunta 1.
+          Yo: Dime el numero de la lotería.
+          brujIA: no
+          // Pregunta 2.
+          Yo: ¿Voy a ser programador?
+          brujIA: Sí.
+          // Pregunta 3.
+          Yo: ¿Voy a aprobar DWEC?
+          brujIA: A esas preguntas no respondo. Adiós.   // Si en la pregunta aparece DWEC el programa termina. 
+
+        */
+
+      /* VARIABLES */
+      let numAleatorio, pregunta;
+      let numPregunta = 0;
+
+      /* PROGRAMA */
+      document.write("<h2>· Ejercicio 01 ·</h2>");
+
+      // Mientras la pregunta no contenga "DWEC" o "dwec"
+      do {
+        pregunta = prompt("Pregunta algo a la brujIA ('DWEC' o 'dwec' para acabar): "); // Pido una cadena por teclado, puede contener tanto un número como otros caracteres
+        numAleatorio = Math.random();   // Genero un número aleatorio
+        numPregunta++;    // Por cada pregunta que haga el usuario se suma 1 (para contar el número de pregunta)
+
+        document.write("// Pregunta "+ numPregunta + ".<br>");    // Muestro el número de cada pregunta
+        document.write("Yo: "+ pregunta);   // Muestro la pregunta del usuario
+
+        // Compruebo si la pregunta contiene "DWEC" o "dwec"
+        if (pregunta.includes("DWEC") || pregunta.includes("dwec")) {
+          document.write("<br>brujIA: A ese tipo de preguntas no respondo. Adiós humano. Me caes mal.");    // Muestro que se enfada la brujIA y se acaba el programa
+        } else {  // Si la pregunta no contiene ni "DWEC" ni "dwec"
+          // Comprobar qué responderá la brujIA dependiendo del número aleatorio que salga
+          if (numAleatorio > 0.499999) {
+            document.write("<br>brujIA: Sí.<br><br>"); // Si el número aleatorio es mayor que 0.499999, la respuesta es "Sí".
+          } else {    // El número aleatorio no es mayor a 0.499999
+            document.write("<br>brujIA: No.<br><br>"); // Sino es "No"
+          } //end else
+        }//end else
+      } while (!(pregunta.includes("DWEC") || pregunta.includes("dwec")));  // Mientras la pregunta no contenga "DWEC" o "dwec"
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

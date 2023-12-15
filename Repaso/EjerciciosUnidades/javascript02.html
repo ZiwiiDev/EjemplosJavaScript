@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Básicos de JavaScript</title>
+    <meta charset="utf-8" />
+  </head> 
+  <body>
+    <script>
+      const PI=3.14;
+      var i = 10;
+      var j = 0;
+      //var i ="a";
+      //let i = 10; // Variable local auténtica.
+      /* Comentario multilínea.
+        Qué es como el C */
+      // Comentario de una línea como en C++
+       
+      for (let i = 0; i < 13; i++) {
+        console.log("numero " + i);    
+      }
+
+      j = ++i; //incremente y despues asigna valor.
+      document.write(j + "<br>");
+      //i = 10;
+      document.write(i+"<br>");
+      i = i++ - 3; // Asigna valor y 
+                  // después aumenta. Pero
+                  // no funciona como crees.
+      document.write(i);
+    </script>
+  </body>
+</html>

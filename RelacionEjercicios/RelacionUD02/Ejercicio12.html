@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 12 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+         12. Realice un programa que pida “n” números, y el final de la entrada (con el número -1),
+        obtenga la media, el máximo y el mínimo.
+        */
+
+      /* VARIABLES */
+      var n, media;
+      var suma = 0;
+      var contador = 0;
+      var max = null;       // Por defecto no lo inicializo porque no hay número al que asignarlo
+      var min = null;       // Por defecto no lo inicializo porque no hay número al que asignarlo
+      var numAcabar = -1; // Si se escribe -1 termina el bucle
+
+      /* PROGRAMA */
+      n = parseInt(prompt("Inserta un número (-1 para finalizar):")); // Sólo acepta escribir números
+
+      // Bucle que se ejecuta mientras no se escriba -1
+      while (n !== numAcabar) {
+        if (!isNaN(n)) {
+          // Si es un número
+          contador++; // Sumo 1 al contador por cada número insertado
+          suma += n; // Voy sumando todos los números insertados
+
+          // Actualizo el máximo si no se ha inicializado y si se encuentra un número mayor insertado
+          if (max === null || n > max) {
+            max = n; // Establezco el número más alto a la variable "max"
+          } //end if
+
+          // Actualizo el mínimo si no se ha inicializado y si se encuentra un número menor insertado
+          if (min === null || n < min) {
+            min = n; // Establezco el número más bajo a la variable "min"
+          } //end if
+        } else {
+          alert("¡Entrada no válida! Ingrese un número válido."); // No se ha insertado un número
+        } //end else
+
+        n = parseInt(prompt("Inserta un número (-1 para finalizar)")); // Se pide insertar otro número hasta que se escriba -1
+      } //end while
+
+      // Condición por si el contador es numérico y 0
+      if (contador === 0) {
+        alert("¡No se ingresaron números válidos!");
+      } else {
+        media = parseInt(suma) / contador;    // La media es la suma de todos los números insertados entre el número de números insertados
+
+        document.write("<p><strong>Media de los números: </strong>" + media + "</p>");
+        document.write("<p><strong>Número más grande (máximo): </strong>" + max + "</p>");
+        document.write("<p><strong>Número más pequeño (mínimo): </strong>" + min + "</p>");
+      }//end else
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

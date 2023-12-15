@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>SubClases y Herencia.</title>
+</head>
+<body>
+<h1> Herencia al fin </h1>
+Es lo que te permite no duplicar las funciones iguales en cada objeto tirando del objeto padre.  <br />
+<br />
+<script type="text/javascript">
+  function Mascota(){   // Clase base
+         this.propietario = "Nadie";
+         this.genero = undefined;
+         this.setPropietario = function(dueño) {
+             propietario=dueño;
+         }
+	     this.getPropietario = function(){
+             return propietario;
+         }
+	     this.setGenero = function(sexo) {
+             genero=sexo;
+         }
+	     this.getGenero = function(){
+             return genero;
+         }
+	 } // Fin de la clase base.
+
+    // Para crear la subclase no olvidarse de las dos llaves {}
+    // Esto es lo difícil.
+    function Gato (){}  // Constructor de la subclase
+        Gato.prototype = new Mascota();
+        Gato.prototype.constructor=Gato;
+        Gato.prototype.ronronear=function ronronear()
+        { 
+            return("Miau") ;
+        }; 
+    function Perro(){};  // Constructor de la subclase
+         Perro.prototype=  new Mascota();
+         Perro.prototype.constructor=Perro;
+         Perro.prototype.ladrar = function ladrar()
+         {
+            return("Guaff");
+         };
+
+    var gatito = new Gato;
+    var perrito = new Perro;
+    gatito.setPropietario("Paco");
+    gatito.setGenero("hembra");
+    perrito.setGenero("macho");
+    document.write("El gato es un "+ gatito.getGenero()+ " propiedad de " +
+    gatito.getPropietario() +" y dice " + gatito.ronronear());
+      document.write("<br/>El perro es un "+ perrito.getGenero() + " " +
+    " propiedad de " + perrito.getPropietario() + " y dice " + perrito.ladrar());  
+
+</script>
+
+</body>
+</html>

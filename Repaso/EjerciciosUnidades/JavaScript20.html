@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>El Objeto History y Location</title>
+</head>
+<body>
+<h1>El Objeto History </h1>
+Este objeto contiene la lista de las URLs visitadas por el usuario.<br />
+Por desgracia no es completamente estándar. <br />
+Veamos las propiedades y los métodos. <br />
+<script lang="text/javascript">
+for (var i in history)
+   {
+	   document.write(i +"  "+history[i]+"<br /> ");
+   }
+//history.back(); // Equivale a darle al botón atras.
+
+//history.forward(); //Equivale a darle al botón adelante.
+   // En vez de darle adelante y atrás, podemos ir varios de una vez.scrollRestoration
+   //history.go(-3);
+   //history.go(3);
+</script>
+El resto de los métodos los veremos para trabajar con ajax. <br />
+<h1>El Objeto Location </h1>
+<strong>hash</strong> 	establece o devuelve la parte (#) de una URL<br />
+<strong>host</strong> 	Establece o devuelve el nombre y puerto de una URL<br />
+<strong>hostname</strong> 	Establece o devuelve el nombre de una URL<br />
+<strong>href</strong> 	Establece o devuelve una URL completa.<br />
+y puerto de una URL<br /><strong>origin</strong> 	Devuelve el protocolo, nombre de host 
+<strong>pathname</strong> 	Establece o devuelve una ruta de una URL<br />
+<strong>port</strong> 	Establece o devuelve el número de puerto de una URL<br />
+<strong>protocol</strong> 	Establece o devuelve el protocolo de una URL<br />
+<strong>search</strong> 	Establece o devuelve la cadena de consulta parte de una URL<br />
+<strong>assign()</strong> 	Carga un nuevo documento<br />
+<strong>reload()</strong> 	Recarga el nuevo documento<br />
+<strong>replace()</strong> 	Reemplaza el documento actual con uno nuevo<br />
+La diferencia entre replace y assign es que uno elemina la historia anterior
+y el otro no. <br />
+<script lang="text/javascript">
+for (var i in location)
+   {
+	   document.write(i +"  "+location[i]+"<br /> ");
+   }
+   //location.port=1080;
+   document.write("La dirección completa es "+location.href+"<br />");
+   document.write("El protocolo usado es "+location.protocol+"<br />");
+   document.write("El origen es "+location.origin+"<br />");
+   document.write("El puerto es "+location.port+"<br />"); // Sólo aparece si es distinto de 80
+   document.write("El hash es "+location.hash+"<br />"); // así sabemos donde estamos en la página.
+   
+ //location.reload(); // Provoca que la página nunca se termine de cargar 
+  //location.assign("http://www.google.com"); // Se nos va google automáticamente.
+   //location.replace("https://bloygo.yoigo.com/embed/111e1eee656a21dc59a2a8388119cdedfd81c8b71582792515/2020-Febrero-Fotos-Portada-coronavirus-twitter.jpg?imagick=1&size=1250"); // Automáticament se verá esa imagen.
+   //location.replace("http://as.com");
+</script>
+
+
+</body>
+</html>

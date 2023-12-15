@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privados y excepciones</title>
+  </head>
+  <body>
+    <script>
+      // Javascript ya soporta privados.
+      // En estos ejemplos vamos a aprender a proteger las propiedades/atributos
+      // de la clase para que no puedan ser modificados desde fuera y solo accesibles
+      // desde los setters y getters que aprendimos a crear
+      // También soporta excepciones y recomiendo usarlas en clases.
+      // Para las tareas es obligatorio.
+      class serVivo {
+        // Los privados los declaramos así. Con un #
+        #_altura; // _nombre para no confundirlo con el setter nombre.
+        constructor(altura) {
+          this.altura = altura; // Si no lo haces no van las comprobaciones
+        }
+
+        set altura(nueva) {
+          // no esté vacío y además que sea cadena
+          // implementar eso como ejercicio.
+          this.#_altura = nueva;
+        }
+        get altura() {
+          return this.#_altura;
+        }
+        toString() {
+          return "\n" + this.#_altura + "<br>";
+        }
+      }
+      class Animal extends serVivo {
+        #_pelos;
+        constructor(altura, pelos) {
+          super(altura);
+          this.altura=altura;
+          this.pelos = pelos;
+        }
+        set altura(nueva) { // pongo la altura positiva.
+          if  (nueva <0)
+            super.altura=-nueva; // para que no sea negativo.
+          else
+            super.altura=nueva;
+        }
+
+        set pelos(cantidad) {
+          this.#_pelos = cantidad;
+        }
+        get pelos() {
+          return this.#_pelos;
+        }
+        toString() {
+          return super.toString() + this.pelos;
+        }
+      }
+
+      let pollo = new Animal(12, 0);
+      document.write(pollo);
+      console.log(pollo);
+    </script>
+  </body>
+</html>

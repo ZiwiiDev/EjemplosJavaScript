@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 8 · Oliver</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        8. Pida una palabra e inviértala. Por ejemplo: “hola” pasa a mostrarse como “aloh”.
+        */
+
+      /* VARIABLES */
+      var cadena, cadenaInvertida, ultimaPosicion;
+
+      /* PROGRAMA */
+      cadena = prompt("Introduce una palabra:");      // Pregunto la palabra
+      cadenaInvertida = "";                           // La inicializo
+      ultimaPosicion = cadena.length - 1;             // Saco la última posición
+
+      // Mientras encuentre caracteres invierto la cadena
+      for (var i = ultimaPosicion; i >= 0; i--) {
+        // El bucle comienza en la última posición de la cadena, se recorre la cadena en orden inverso
+        cadenaInvertida += cadena.charAt(i);      // La cadena invertida es la cadena original pero invirtiendo los caracteres
+      }//end for
+
+      document.write(cadenaInvertida);      // Imprimo el resultado de la cadena invertida
+
+      /* 2 FORMA ADICIONAL Con split(), reverse() y join();
+
+      var invertirCadena = cadena.split("").reverse().join("");     // Primero divido la cadena, luego invierto el orden de los elementos o caracteres y por último lo junto todo
+      document.write(invertirCadena);
+      */
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------->
+  </body>
+</html>

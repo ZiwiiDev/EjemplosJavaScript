@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Prototype 2. </title>
+</head>
+<body>
+
+Es lo que te permite no duplicar las funciones iguales
+en cada objeto tirando del objeto padre.  <br />
+<br />
+<script type="text/javascript">
+
+    function Libro(autor, titulo, editorial, precio)
+    {
+        this.titulo=titulo;
+        this.autor=autor;
+        this.editorial=editorial;
+        this.precio=precio;
+    }
+    // Este método se añada a todos los objetos actuales y futuros
+  // Ahora voy a añadir un método para calcular el precio con IVA.
+
+    Libro.prototype.conIVA = function() {
+        var devolver = this.precio*0.21 + this.precio;
+        return (devolver);
+    }
+    
+    
+    // Ahora crearé dos objetos librocd 
+    var libro1 = new Libro("Isaac Asimov",
+                           "Fundación","Plaza y Janés", 9);
+    var libro2 = new Libro("George R. R. Martin", "Muerte de la luz",
+                           "Gigamesh",18);
+
+    
+ 
+    document.write(libro1.titulo+" vale "+libro1.conIVA() + "€ <br />");
+    document.write(libro2.titulo+" vale "+libro2.conIVA() + "€ <br />");
+
+
+</script>
+
+</body>
+</html>

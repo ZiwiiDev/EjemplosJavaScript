@@ -1,0 +1,150 @@
+<!----------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relación UD04 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------->
+  <body>
+    <p id="salida"></p>
+
+    <script type="module">
+      import { Humano } from "./Humano.js";
+      import { Eterno } from "./Eterno.js";
+      import { Eternidad } from "./Eternidad.js";
+
+      /* VARIABLES PARA "HUMANO" */
+      let martyMacFly;
+      let tomCruise;
+      let bradPitt;
+      let errorHumano;
+
+      // Creo los objetos de tipo "Humano"
+      try {
+        // EJEMPLO PARA QUE DE ERROR
+        //errorHumano = new Humano("May", "abc", -1);
+
+        martyMacFly = new Humano("Marty MacFly", 20, 1);
+        tomCruise = new Humano("Tom Cruise", 25, 5);
+        bradPitt = new Humano("Brad Pitt", 19, 3);
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo crear los objetos de tipo 'Humano'. " + e);
+      }//end catch
+
+      /* VARIABLES PARA "ETERNO" */
+      let eminem;
+      let johnnyDeep;
+      let benAffleck;
+      let robbieWilliams;
+      let travisScott;
+      let mileyCyrus;
+      let johnTravolta;
+      let jasonStatham;
+      let rickyMartin;
+      let arnoldSchwarzenegger;
+      let errorEterno;
+
+      // Creo los objetos de tipo "Eterno"
+      try {
+        // EJEMPLO PARA QUE DE ERROR
+        //errorEterno = new Eterno("Emy", 1, 5, "Tatuador");
+
+        eminem = new Eterno("Eminem", 5000, 150, "Ejecutor");
+        johnnyDeep = new Eterno("Johnny Depp", 360, 10, "Jefe");
+        benAffleck = new Eterno("Ben Affleck", 23, 7, "Aprendiz");
+        robbieWilliams = new Eterno("Robbie Williams", 27, 15, "Técnico");
+        travisScott = new Eterno("Travis Scott", 65, 10, "Técnico");
+        mileyCyrus = new Eterno("Miley Cyrus", 92, 9, "Aprendiz");
+        johnTravolta = new Eterno("John Travolta", 35, 40, "Jefe");
+        jasonStatham = new Eterno("Jason Statham", 100, 150, "Ejecutor");
+        rickyMartin = new Eterno("Ricky Martin", 75, 85, "Técnico");
+        arnoldSchwarzenegger = new Eterno("Arnold Schwarzenegger", 175, 200, "Jefe");
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo crear los objetos de tipo 'Eterno'. " + e);
+      }//end catch
+
+      /* VARIABLES PARA "ETERNINDAD" */
+      let johnnyDeepEternidad;
+      let arnoldSchwarzeneggerEternidad;
+      let errorEternidad;
+
+      // Creo los objetos de tipo "Eternidades"
+      try {
+        // EJEMPLO PARA QUE DE ERROR
+        //errorEternidad = new Eternidad(mileyCyrus, "qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.");
+
+        johnnyDeepEternidad = new Eternidad(johnnyDeep, "El boss de la eternidad.");
+        arnoldSchwarzeneggerEternidad = new Eternidad(arnoldSchwarzenegger, "Literalmente es Terminator.");
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo crear los objetos de tipo 'Eternidad'. " + e);
+      }//end catch
+
+      // Intento añadir eternos a la realidad donde Johnny Depp es el Jefe Supremo
+      try {
+        johnnyDeepEternidad.reclutarEterno(benAffleck); // Aprendiz
+        johnnyDeepEternidad.reclutarEterno(robbieWilliams); // Técnico
+        johnnyDeepEternidad.reclutarEterno(johnTravolta); // Jefe
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo añadir eternos a la realidad de Johnny Deep. " + e);
+      }//end catch
+
+      // Intento añadir eternos a la realidad donde Arnold Schwarzenegger es el Jefe Supremo
+      try {
+        arnoldSchwarzeneggerEternidad.reclutarEterno(eminem); // Ejecutor
+        arnoldSchwarzeneggerEternidad.reclutarEterno(travisScott); // Técnico
+        arnoldSchwarzeneggerEternidad.reclutarEterno(mileyCyrus); // Aprendiz
+        arnoldSchwarzeneggerEternidad.reclutarEterno(jasonStatham); // Ejecutor
+        arnoldSchwarzeneggerEternidad.reclutarEterno(rickyMartin); // Técnico
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo añadir eternos a la realidad de Arnold Schwarzenegger. " + e);
+      }//end catch
+
+      /* Creo un array llamado Dominadores */
+      let Dominadores = [];
+
+      // Intento añadir las realidades al array de "Dominadores"
+      try {
+        Dominadores = [johnnyDeepEternidad, arnoldSchwarzeneggerEternidad];
+      } catch (e) {
+        console.error("¡ERROR!: No se pudo añadir las eternidades al array 'Dominadores'. " + e);
+      }//end catch
+
+      // Ejemplo de uso de listadoCargo(cargo)
+      let aprendices = arnoldSchwarzeneggerEternidad.listadoCargo("Aprendiz");
+      console.log("Aprendices en la Eternidad de Arnold Schwarzenegger:\n", aprendices);
+
+      // Ejemplo de uso de listadoOrdenado()
+      let eternosOrdenados = arnoldSchwarzeneggerEternidad.listadoOrdenado();
+      console.log("Eternos en la Eternidad de Arnold Schwarzenegger ordenados por nombre:\n", eternosOrdenados);
+
+      // Cambio al Jefe Supremo de la primera eternidad por otro
+      try {
+          johnnyDeepEternidad.cesarEterno("Johnny Depp");  // Elimino el antiguo jefe
+          johnnyDeepEternidad.reclutarEterno(johnTravolta); // Agrego el nuevo jefe
+      } catch (e) {
+          console.error("¡ERROR!: No se pudo cambiar el Jefe Supremo de la primera eternidad. " + e);
+      } finally {
+          // Muestro la tabla con todos los datos
+          let infoDominadoresHTML = "<strong>----- Información de Dominadores -----</strong><br><br>";
+
+          // Itero sobre cada eternidad
+          // forEach() itera los elementos del array
+          Dominadores.forEach((miEternidad, eternidad) => {
+            // Muestro la realidad actual
+            infoDominadoresHTML += "<br><strong>Eternidad " + (eternidad + 1) + ":</strong><br>";
+
+            // Muestro los demás datos
+            infoDominadoresHTML += miEternidad.toString();
+          });//end forEach
+
+          // Imprimo todos los datos por pantalla
+          salida.innerHTML = infoDominadoresHTML;
+      }//end finally
+    </script>
+    <!----------------------------------------------------------------------------------------------->
+  </body>
+  <!----------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------->

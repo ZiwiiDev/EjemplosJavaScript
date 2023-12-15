@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Apertura y cierre de ventanas</title>
+	<script>
+		// No olvidar los permisos de ventanas emergentes. 
+		function inicializar() {
+			// Asignamos los eventos de pulsar el click del ratón
+			// No tienen () y es la forma normal de JavaScript. 
+			document.getElementById("crear-ventana").onclick = crearNueva;
+			document.getElementById("cerrar-ventana").onclick = cerrarNueva;
+		}
+		var nuevaVentana=null;
+        
+		function crearNueva() {
+			// Abrimos una nueva ventana. 
+			nuevaVentana = window.open("http://pastafarismo.es", "_blank", "top=80,height=220,width=280");
+		}
+
+		function cerrarNueva() {
+			if (nuevaVentana) // Si la ventana existe.
+			{
+				nuevaVentana.close();
+				nuevaVentana = null; // undefined
+			}
+		}
+	
+	</script>
+	</head>
+
+<body onLoad="inicializar()">
+	<h1>Abrimos y cerramos ventanas</h1>
+	<form>
+		<p> <input type="button" id="crear-ventana" value="Crear Nueva Ventana">
+			<input type="button" id="cerrar-ventana" value="Cerrar Nueva Ventana"> </p>
+	</form>
+	
+</body>
+
+</html>

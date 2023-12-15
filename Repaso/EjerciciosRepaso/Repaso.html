@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Entrada de texto prompt, comprobar que es número y hacer toFix, toExponential, toPrecision, toString, valueOf
+
+      /* VARIABLE */
+      let num;
+
+      /* PROGRAMA */
+      num = parseFloat(prompt("Dígame un número")); // Sólo acepta escribir números
+
+      if (isNaN(num) || !isFinite(num) || num == null) {
+        document.write("<p><strong>¡No has introducido ningún número!</strong></p>"); // Indico que no se ha introducido un número
+      } else {
+        document.write("Ceil: " + Math.ceil(num) + "<br>"); // si vale 1,01 pasa a 2. solo si vale 1 se queda en 1
+        document.write("Round: " + Math.round(num) + "<br>"); // Por ejemplo si sale un 0, algo >=0,5 pasa a 1 menos pasa a 0
+        document.write("Floor: " + Math.floor(num) + "<br>"); // Trunca los decimales. 1.2 -> 1, 1.9 -> 1.
+        document.write("toFixed(2): " + num.toFixed(2) + "<br>"); // Sólo dos decimales.
+        document.write("toFixed(3): " + num.toFixed(3) + "<br>"); // Sólo tres decimales.
+        document.write("toExponential(2): " + num.toExponential(2) + "<br>"); // Pasa a exponencial (1.23e+5)
+        document.write("toPrecision(2): " + num.toPrecision(2) + "<br>"); // Precisión de 2 dígitos   (1.2, pilla el entero también)
+        document.write("valueOf(): " + num.valueOf() + "<br>"); // Para convertir de objeto a tipo.
+      }
+    </script>
+  </body>
+</html>

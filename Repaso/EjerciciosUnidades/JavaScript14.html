@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plugin</title>
+  </head>
+  <body>
+    <h1>El Objeto Plug-in</h1>
+
+    <ul>
+      <li>description - La descripción del plugin.</li>
+      <li>filename - El nombre del archivo.</li>
+      <li>length - La cantidad de tipos mime asociados al plugin.</li>
+      <li>name - The name of the plugin.</li>
+    </ul>
+
+    Vamos a ver que plugins están el el sistema.
+
+    <script>
+      for (let i in navigator.plugins)
+       {
+         document.write(i + " = "+ navigator.plugins[i] + " <br />");
+         document.write("Descripción "+navigator.plugins[i].description+"<br />");
+         document.write("Nombre del Archivo "+navigator.plugins[i].fileName+"<br />");
+         document.write("Longitud "+navigator.plugins[i].length+"<br />");
+         document.write("Nombre "+navigator.plugins[i].name+"<br />");
+        }
+    </script>
+
+    Ahora vamos a detectar si está instalado el plugin flash.
+    <br />
+
+    <script>
+      if (navigator.plugins["Shockwave Flash"])
+        document.write("Se ha detectado flash");
+      else {
+        document.write("No se detecta Flash.");
+        document.write("<a href='http://get.adobe.com/es/flashplayer/'>");
+        document.write("Instale Flash </a> <br />");
+      }
+      // Otra forma. Puedes buscar cualquier tipo de array.
+      var encontrado = false;
+      for (let i in navigator.plugins) {
+        console.log("llego");
+        //document.write((navigator.plugins[i].description));
+        if (navigator.plugins[i].description)
+          if (navigator.plugins[i].description.indexOf("Flash") != -1) {
+            // Si tiene descripción
+            // Indica que se ha encontrado
+            document.write("Flash detectado<br />");
+            encontrado = true;
+          }
+      }
+      if (!encontrado) document.write("NO se he encontrado flash ");
+    </script>
+  </body>
+</html>

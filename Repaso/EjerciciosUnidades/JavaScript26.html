@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Objetos inicializados por el Constructor.</title>
+</head>
+<body>
+
+<script lang="text/javascript">
+ // Creamos un constructor.
+    function Coche (model,maker,year, pintura)
+     {   
+		 this.modelo=model;
+		 this.fabricante=maker;
+		 this.ano=year;
+		 this.color=pintura;
+		 this.arrancado=false;
+		 this.arrancar=function () {
+			this.arrancado=true;
+            return("Arranco el coche.");
+		    };
+		 this.apagar= function () {
+		    this.arrancado=false;
+            return("Apago el coche");
+		    };
+		 this.conducir= function() {
+			 var devolver;
+			 if (this.arrancado)
+			   {
+				devolver="Apatrullando la ciudad";
+			   }
+			 else
+			   {
+				devolver="No tienes el coche funcionando";
+  			   }
+             return(devolver);
+	        };
+	      // Este método es el que se encarga de pasarle los datos
+	      // a document.write
+		  this.toString= function() {
+              let devolver_arrancado;
+              if (this.arrancado)
+                  devolver_arrancado="Arrancado.";
+              else
+                  devolver_arrancado="Apagado";
+              
+			  return( this.modelo+" "+this.fabricante
+			  +" "+ this.ano+" "+this.color+" "+ devolver_arrancado );
+		  };
+
+	 };
+    // Crearemos ahora otro objeto coche.
+    var lamb=new Coche("Huracan","Lamborghini", 2010, "plata");
+    var ferrari=new Coche("LaFerrari","Ferrari", 2013, "rojo");
+    ferrari.arrancar();
+    var porche= new Coche("Cayena","Porche", "2002", "gris");
+    document.write(lamb.toString()+"<br />"); // Mejor no. Pero para que lo entendáis.
+    document.write(ferrari+"<br />");
+    document.write(porche+"<br />");
+ // Este método de creación de objetos tiene un problema.
+ // Cada vez que creamos un objeto, copiamos toda la funcionalidad
+ // con el desperdicio de memoria en copiar una y otra vez los métodos.
+
+ // Se pueden crear arrays de objetos de este tipo y os lo dejo como
+ // ejercicio.
+
+</script>
+
+
+
+
+
+</body>
+</html>

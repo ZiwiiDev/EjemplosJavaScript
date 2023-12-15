@@ -1,0 +1,129 @@
+<!----------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2 · Oliver</title>
+  </head>
+  <!----------------------------------------------------------------------------------------------------------------->
+  <body>
+    <script>
+      /* Oliver Fabián Stetcu Stepanov | 2º DAW */
+
+      /*
+        2. Zodiaco Chino. Crea un script que introduciendo una fecha de nacimiento nos indique
+        el animal y el material que le corresponde según el calendario chino. Empezar a partir del siglo XX. 
+        Suponer que el fin de año siempre es el 20 de Febrero. Leer los datos en una sola entrada.
+        */
+
+      /* VARIABLES */
+      let fechaNacimiento, anioNacimiento, anioChino, miElemento, miAnimal, finAnio, diferenciaAnios, indiceElemento;
+      
+      /* CONSTANTES */
+      let ANIO_COMIENZO;    // Lo pongo en mayúsculas porque no varía nunca, es una constante (Arturo dijo que no utilizar "const")
+
+      /* PROGRAMA */
+      document.write("<h2>· Ejercicio 02 ·</h2>");
+
+      // Pregunto la fecha de nacimiento en formato específico y la convierto a objeto Date
+      fechaNacimiento = new Date(prompt("Introduce tu fecha de nacimiento de la siguiente forma: (YYYY/MM/DD): "));
+
+      anioNacimiento = fechaNacimiento.getFullYear();   // Año de nacimiento del usuario
+
+      // 20 de febrero del año de nacimiento. Suponer que el fin de año siempre es el 20 de Febrero
+      finAnio = new Date(anioNacimiento, 1, 20);
+
+      // Año para empezar el ciclo del zodiaco chino, en 1900 es el siglo XIX y a partir de ahí es el siglo XX (1901, 1902...)
+      ANIO_COMIENZO = 1900;
+
+      // Si es un valor numérico
+      if (!isNaN(fechaNacimiento)) {
+        document.write("<p><strong>Fecha de nacimiento: </strong>" +  fechaNacimiento.toLocaleDateString("es") + "</p>");     /* AÑO/MES/DIA        -        YYYY/MM/DD */
+
+        // Verifico si la fecha de nacimiento es anterior o igual al 20 de Febrero del año de nacimiento
+        if (fechaNacimiento <= finAnio) {
+          anioChino = (anioNacimiento - 1 - ANIO_COMIENZO) % 12; // Resto 1 al año de nacimiento
+        } else {  // Si la fecha de nacimiento es posterior al 20 de Febrero del año de nacimiento
+          // Calculo el año chino del usuario en base a su año de nacimiento, restando al año de nacimiento del usuario el año base por el que empieza el ciclo del zodiaco chino.
+          // Existen 12 animales como signos en el zodíaco chino, por lo que las posiciones son desde 0 hasta 11. Le hago el módulo de 12 para comprobar si está entre 0 y 11.
+          anioChino = (anioNacimiento - ANIO_COMIENZO) % 12;
+        }//end else
+
+        // Utilizamos un switch para sacar el animal del zodiaco chino.
+        // Case para todos los posibles animales. Se ordenan en base al orden tradicional de los 12 animales del zodiaco chino.
+        switch (anioChino) {
+          case 0:
+            miAnimal = "Rata";
+            break;
+          case 1:
+            miAnimal = "Buey";
+            break;
+          case 2:
+            miAnimal = "Tigre";
+            break;
+          case 3:
+            miAnimal = "Conejo";
+            break;
+          case 4:
+            miAnimal = "Dragón";
+            break;
+          case 5:
+            miAnimal = "Serpiente";
+            break;
+          case 6:
+            miAnimal = "Caballo";
+            break;
+          case 7:
+            miAnimal = "Cabra";
+            break;
+          case 8:
+            miAnimal = "Mono";
+            break;
+          case 9:
+            miAnimal = "Gallo";
+            break;
+          case 10:
+            miAnimal = "Perro";
+            break;
+          case 11:
+            miAnimal = "Cerdo";
+            break;
+        }//end switch
+
+        // Calculo la diferencia entre el año de nacimiento del usuario y el año base
+        diferenciaAnios = anioNacimiento - ANIO_COMIENZO;
+
+        // Calculo el índice basado en esa diferencia de años, dividiéndola entre 2 y obteniendo un entero.
+        // Además, hago el módulo de 5 de ese índice para asegurarme de que esté en el rango de 0 a 4 (número total de elementos).
+        indiceElemento = Math.floor(diferenciaAnios / 2) % 5;
+
+        // Utilizamos un switch para sacar el elemento del zodiaco chino.
+        // Case para todos los posibles elementos. Se ordenan en base a su posición en el ciclo de 10 años.
+        switch (indiceElemento) {
+          case 0:
+            miElemento = "Metal";
+            break;
+          case 1:
+            miElemento = "Agua";
+            break;
+          case 2:
+            miElemento = "Madera";
+            break;
+          case 3:
+            miElemento = "Fuego";
+            break;
+          case 4:
+            miElemento = "Tierra";
+            break;
+        }//end switch
+
+        document.write("<p><strong>Tu signo del zodiaco chino es ' "+ miAnimal + " ' y tu elemento es ' "+ miElemento +" '.</strong></p>");   // Muestro el animal y el elemento del usuario
+      } else {
+        document.write("<p><strong>¡Fecha inválida!</strong></p>");   // Error de fecha inválida
+      }//end else
+    </script>
+  </body>
+  <!----------------------------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------------------------->

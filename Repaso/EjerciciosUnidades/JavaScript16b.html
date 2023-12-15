@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Apertura y cierre de ventanas</title>
+	<script>
+		
+	</script>
+	</head>
+
+<body>
+	<h1>Abrimos y cerramos ventanas</h1>
+	<form>
+		<p> <input type="button" id="crear-ventana" value="Crear Nueva Ventana">
+			<input type="button" id="cerrar-ventana" value="Cerrar Nueva Ventana"> </p>
+	</form>
+
+
+	<script>
+		// No olvidar los permisos de ventanas emergentes. 
+
+			// Asignamos los eventos de pulsar el click del ratón
+			// No tienen () y es la forma normal de JavaScript. 
+			document.getElementById("crear-ventana").onclick = crearNueva;
+			document.getElementById("cerrar-ventana").onclick = cerrarNueva;
+
+		var nuevaVentana;
+        
+		function crearNueva() {
+			// Abrimos una nueva ventana. 
+			nuevaVentana = window.open("http://as.com/", "_blank", "top=800,height=400,width=800");
+		}
+
+		function cerrarNueva() {
+			if (nuevaVentana) // Si la ventana existe.
+			{
+				nuevaVentana.close();
+				nuevaVentana = null;
+			}
+		}
+	</script>
+</body>
+
+</html>
